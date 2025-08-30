@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestrax Financial Holdings - Investor Relations</title>
+  <link rel="icon" href="vestraxlogo.png" type="image/png">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #222;
+      color: white;
+    }
+
+    header a.logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+
+    header img.logo {
+      height: 50px;
+      cursor: pointer;
+    }
+
+    header span.company-name {
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #333;
+      min-width: 160px;
+      z-index: 1;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: flex;
+    }
+
+	/* Ticker */
+    .ticker-container {
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerMove 20s linear infinite;
+    }
+    .ticker-container:hover .ticker {
+      animation-play-state: paused;
+    }
+    .ticker a {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .ticker a:hover {
+      background-color: #333;
+      color: #ffcc00;
+      cursor: pointer;
+    }
+    .ticker-symbol {
+      font-weight: bold;
+    }
+    .ticker-price {
+      font-weight: normal;
+    }
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    /* Optional: footer styling */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #222;
+      color: white;
+    }
+	
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #222;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    a.pdf-link {
+      display: inline-block;
+      margin: 5px 0;
+      color: #0077cc;
+      text-decoration: underline;
+    }
+
+    a.pdf-link:hover {
+      color: #005999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  
+    <a href="index.html" class="logo-container">
+      <img src="vestraxlogo.png" alt="Vestrax Logo" class="logo">
+      <span class="company-name">Vestrax Financial Holdings</span>
+    </a>
+    <nav>
+      <a href="about.html">About Us</a>
+      <div class="dropdown">
+        <a href="#">Investments ▼</a>
+        <div class="dropdown-content">
+          <a href="investment1.html">Investment 1</a>
+          <a href="investment2.html">Investment 2</a>
+          <a href="investment3.html">Investment 3</a>
+        </div>
+      </div>
+      <a href="investor-relations.html">Investor Relations</a>
+    </nav>
+  </header>
+  
+  <!-- Ticker -->
+  <div class="ticker-container">
+    <div class="ticker">
+      <a href="investment1.html"><span class="ticker-symbol">VFHF</span> <span class="ticker-price">$123.45 <b>(+1.23%)<b></span></a>
+      <a href="investment2.html"><span class="ticker-symbol">VFHA</span> <span class="ticker-price">$234.56 <b>(-0.45%)<b></span></a>
+      <a href="investment3.html"><span class="ticker-symbol">VFHB</span> <span class="ticker-price">$345.67 <b>(+0.89%)<b></span></a>
+    </div>
+  </div>
+
+  <main>
+    <h1>Investor Relations</h1>
+
+    <section id="stock-info">
+  <h2>Stock Information</h2>
+
+  <div class="ticker-box">
+    <div class="ticker-item">
+      <span class="label">Current Price:</span>
+      <span class="value" id="stock-price">$123.45</span>
+    </div>
+    <div class="ticker-item">
+      <span class="label">Change:</span>
+      <span class="value" id="stock-change">+1.23 (1.01%)</span>
+    </div>
+    <div class="ticker-item">
+      <span class="label">Date:</span>
+      <span class="value" id="stock-date">Aug 30, 2025</span>
+    </div>
+  </div>
+
+  <style>
+    .ticker-box {
+      display: flex;
+      background-color: #222;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .ticker-item {
+      margin: 5px 10px;
+      font-weight: bold;
+    }
+    .ticker-item .label {
+      margin-right: 5px;
+      color: #aaa;
+    }
+    .ticker-item .value {
+      color: #fff;
+    }
+  </style>
+
+  <!-- Optional JS to update date dynamically -->
+  <script>
+    const dateEl = document.getElementById('stock-date');
+    const now = new Date();
+    dateEl.textContent = now.toDateString();
+  </script>
+</section>
+
+
+    <section id="earnings-releases">
+  <h2>Earnings Releases</h2>
+  <p>Download our earnings reports below. Use the filters to view Monthly, Quarterly, or Annual reports:</p>
+
+  <!-- Filter buttons -->
+  <div id="filter-buttons" style="margin-bottom: 15px;">
+    <button onclick="filterReports('all')">All</button>
+    <button onclick="filterReports('monthly')">Monthly</button>
+    <button onclick="filterReports('quarterly')">Quarterly</button>
+    <button onclick="filterReports('annual')">Annual</button>
+  </div>
+
+  <table id="earnings-table" border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr style="background-color: #222; color: white;">
+        <th>Type</th>
+        <th>Period</th>
+        <th>Month/Quarter/Year</th>
+        <th>Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Monthly Reports -->
+      <tr class="monthly">
+        <td>Monthly</td>
+        <td>Q1 2025</td>
+        <td>January</td>
+        <td><a href="pdfs/jan-2025.pdf" target="_blank">Download PDF</a></td>
+      </tr>
+      <tr class="monthly">
+        <td>Monthly</td>
+        <td>Q1 2025</td>
+        <td>February</td>
+        <td><a href="pdfs/feb-2025.pdf" target="_blank">Download PDF</a></td>
+      </tr>
+      <tr class="monthly">
+        <td>Monthly</td>
+        <td>Q1 2025</td>
+        <td>March</td>
+        <td><a href="pdfs/mar-2025.pdf" target="_blank">Download PDF</a></td>
+      </tr>
+      <!-- Quarterly Reports -->
+      <tr class="quarterly">
+        <td>Quarterly</td>
+        <td>Q1 2025</td>
+        <td>Q1</td>
+        <td><a href="pdfs/q1-2025.pdf" target="_blank">Download PDF</a></td>
+      </tr>
+      <tr class="quarterly">
+        <td>Quarterly</td>
+        <td>Q2 2025</td>
+        <td>Q2</td>
+        <td><a href="pdfs/q2-2025.pdf" target="_blank">Download PDF</a></td>
+      </tr>
+      <!-- Annual Reports -->
+      <tr class="annual">
+        <td>Annual</td>
+        <td>FY 2025</td>
+        <td>2025</td>
+        <td><a href="pdfs/annual-2025.pdf" target="_blank">Download PDF</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function filterReports(type) {
+      const rows = document.querySelectorAll('#earnings-table tbody tr');
+      rows.forEach(row => {
+        if (type === 'all') {
+          row.style.display = '';
+        } else if (row.classList.contains(type)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+  <style>
+    #filter-buttons button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #222;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+    #filter-buttons button:hover {
+      background-color: #444;
+    }
+    #earnings-table a {
+      text-decoration: none;
+      color: #0073e6;
+    }
+    #earnings-table a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</section>
+
+
+  </main>
+  <footer>
+    &copy; 2025 Vestrax Financial Holdings. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

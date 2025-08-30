@@ -14,111 +14,167 @@
 
     /* Header */
     header {
-      background-color: #222;
-      color: white;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background-color: #222;
+      color: white;
     }
 
-    /* Logo + company name */
+    /* Logo + Company name */
     .logo-container {
       display: flex;
       align-items: center;
+      gap: 10px;
+    }
+    .logo-container img.logo {
+      height: 50px;
       cursor: pointer;
     }
-
-    .logo-container img {
-      height: 50px;
-      margin-right: 10px;
-    }
-
-    .logo-container span {
+    .company-name {
+      font-size: 20px;
       font-weight: bold;
-      font-size: 1.2rem;
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
     }
 
     /* Navigation */
     nav {
+      display: flex;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+    }
+    nav li {
       position: relative;
     }
-
-    .nav-link {
+    nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
       font-weight: bold;
-      cursor: pointer;
+      padding: 5px 0;
     }
-
-    .nav-link:hover {
+    nav a:hover {
       text-decoration: underline;
     }
 
-    /* Dropdown menu */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
+    /* Dropdown */
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #333;
       min-width: 150px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      z-index: 1000;
+      top: 100%;
+      left: 0;
+      z-index: 1;
     }
-
     .dropdown-content a {
+      display: block;
+      padding: 10px;
+    }
+    li:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Ticker */
+    .ticker-container {
+      background-color: #111;
       color: white;
-      padding: 10px 15px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerMove 20s linear infinite;
+    }
+    .ticker-container:hover .ticker {
+      animation-play-state: paused;
+    }
+    .ticker a {
+      color: white;
       text-decoration: none;
-      display: block;
+      margin: 0 30px;
+      transition: background-color 0.3s, color 0.3s;
     }
-
-    .dropdown-content a:hover {
-      background-color: #444;
+    .ticker a:hover {
+      background-color: #333;
+      color: #ffcc00;
+      cursor: pointer;
     }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .ticker-symbol {
+      font-weight: bold;
+    }
+    .ticker-price {
+      font-weight: normal;
+    }
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
 
     main {
       padding: 20px;
+    }
+
+    /* Optional: footer styling */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #222;
+      color: white;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo-container" onclick="location.href='index.html'">
-      <img src="vestraxlogo.png" alt="Vestrax Logo">
-      <span>Vestrax Financial Holdings</span>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="vestraxlogo.png" alt="Vestrax Logo" class="logo">
+      </a>
+      <a href="index.html" class="company-name">Vestrax Financial Holdings</a>
     </div>
-
     <nav>
-      <a href="about.html" class="nav-link">About Us</a>
-      <div class="dropdown">
-        <span class="nav-link">Investments ▾</span>
-        <div class="dropdown-content">
-          <a href="investment1.html">Investment 1</a>
-          <a href="investment2.html">Investment 2</a>
-          <a href="investment3.html">Investment 3</a>
-        </div>
-      </div>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li>
+          <a href="#">Investments ▼</a>
+          <div class="dropdown-content">
+            <a href="investment1.html">Investment 1</a>
+            <a href="investment2.html">Investment 2</a>
+            <a href="investment3.html">Investment 3</a>
+          </div>
+        </li>
+        <li><a href="investor-relations.html">Investor Relations</a></li>
+      </ul>
     </nav>
   </header>
 
+  <!-- Ticker -->
+  <div class="ticker-container">
+    <div class="ticker">
+      <a href="investment1.html"><span class="ticker-symbol">VFHF</span> <span class="ticker-price">$123.45 <b>(+1.23%)<b></span></a>
+      <a href="investment2.html"><span class="ticker-symbol">VFHA</span> <span class="ticker-price">$234.56 <b>(-0.45%)<b></span></a>
+      <a href="investment3.html"><span class="ticker-symbol">VFHB</span> <span class="ticker-price">$345.67 <b>(+0.89%)<b></span></a>
+    </div>
+  </div>
+
   <main>
     <h1>Welcome to Vestrax Financial Holdings</h1>
-    <p>Your trusted partner for investment solutions. Use the Investments menu above to navigate to your portfolios.</p>
+    <p>Your trusted partner in investment solutions.</p>
   </main>
+
+  <footer>
+    &copy; 2025 Vestrax Financial Holdings. All Rights Reserved.
+  </footer>
 
 </body>
 </html>

@@ -108,23 +108,160 @@
 <body>
 
   <header>
-    <div class="logo-container" onclick="location.href='index.html'">
-      <img src="vestraxlogo.png" alt="Vestrax Logo">
-      <span>Vestrax Financial Holdings</span>
+  <a href="index.html" class="logo-link">
+    <img src="vestraxlogo.png" alt="Vestrax Logo" class="logo">
+    <span class="company-name">Vestrax Financial Holdings</span>
+  </a>
+  <nav>
+    <a href="about.html">About Us</a>
+
+    <div class="dropdown">
+      <a href="#">Investments &#9662;</a>
+      <div class="dropdown-content">
+        <a href="investment1.html">Investment 1</a>
+        <a href="investment2.html">Investment 2</a>
+        <a href="investment3.html">Investment 3</a>
+      </div>
     </div>
 
-    <nav>
-      <a href="about.html" class="nav-link">About Us</a>
-      <div class="dropdown">
-        <span class="nav-link">Investments ▾</span>
-        <div class="dropdown-content">
-          <a href="investment1.html">Investment 1</a>
-          <a href="investment2.html">Investment 2</a>
-          <a href="investment3.html">Investment 3</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+    <a href="investor-relations.html">Investor Relations</a>
+  </nav>
+</header>
+
+<!-- Ticker -->
+  <div class="ticker-container">
+    <div class="ticker">
+      <a href="investment1.html"><span class="ticker-symbol">VFHF</span> <span class="ticker-price">$123.45 <b>(+1.23%)<b></span></a>
+      <a href="investment2.html"><span class="ticker-symbol">VFHA</span> <span class="ticker-price">$234.56 <b>(-0.45%)<b></span></a>
+      <a href="investment3.html"><span class="ticker-symbol">VFHB</span> <span class="ticker-price">$345.67 <b>(+0.89%)<b></span></a>
+    </div>
+  </div>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+  }
+
+  .logo {
+    height: 50px;
+    cursor: pointer;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+  }
+
+  .company-name {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Dropdown styling */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 150px;
+    z-index: 1;
+    border-radius: 5px;
+  }
+
+  .dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #444;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Ticker */
+    .ticker-container {
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerMove 20s linear infinite;
+    }
+    .ticker-container:hover .ticker {
+      animation-play-state: paused;
+    }
+    .ticker a {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .ticker a:hover {
+      background-color: #333;
+      color: #ffcc00;
+      cursor: pointer;
+    }
+    .ticker-symbol {
+      font-weight: bold;
+    }
+    .ticker-price {
+      font-weight: normal;
+    }
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    /* Optional: footer styling */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #222;
+      color: white;
+    }
+  
+</style>
+
 
   <main>
     <h1>Investment 1</h1>
@@ -135,6 +272,10 @@
       src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubhtml?gid=1333582731&amp;single=true&amp;widget=true&amp;headers=false">
     </iframe>
   </main>
+  <footer>
+    &copy; 2025 Vestrax Financial Holdings. All Rights Reserved.
+  </footer>
+
 
 </body>
 </html>
