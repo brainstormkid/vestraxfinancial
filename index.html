@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vestrax Financial Holdings</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #2c3e50; color: white; padding: 10px 20px; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        main { padding: 20px; }
-        footer { text-align: center; padding: 10px; background: #ecf0f1; margin-top: 20px; }
-        iframe { border: 1px solid #ccc; margin-top: 20px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestrax Financial Holdings</title>
+  <link rel="icon" href="vestraxlogo.png" type="image/png">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #222;
+      color: white;
+    }
+    header img.logo {
+      height: 50px;
+      cursor: pointer;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    .button {
+      background-color: #aa008e;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      transition: transform 0.3s;
+    }
+    .button:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <h1>Vestrax Financial Holdings</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="investment1.html">Investment A</a>
-        <a href="investment2.html">Investment B</a>
-        <a href="investment3.html">Investment C</a>
-    </nav>
+  <header>
+  <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: white;">
+    <img src="vestraxlogo.png" alt="Vestrax Logo" class="logo" style="height: 50px; width: auto; margin-right: 10px; cursor: pointer;">
+    <span style="font-size: 1.5rem; font-weight: bold;">Vestrax Financial Holdings</span>
+  </a>
+  <nav>
+    <a href="investment1.html">Investment 1</a>
+    <a href="investment2.html">Investment 2</a>
+    <a href="investment3.html">Investment 3</a>
+  </nav>
 </header>
 
-<main>
-    <h2>Welcome to Vestrax Financial Holdings</h2>
-    <p>Here you can explore our investment opportunities and track performance data.</p>
-</main>
-
-<footer>
-    &copy; 2025 Vestrax Financial Holdings
-</footer>
-
+  <main>
+    <h1>Welcome to Vestrax Financial Holdings</h1>
+    <p>Your hub for tracking investments and financial insights.</p>
+    
+    <a href="investment1.html" class="button">Go to Investment 1</a>
+    <a href="investment2.html" class="button">Go to Investment 2</a>
+    <a href="investment3.html" class="button">Go to Investment 3</a>
+  </main>
 </body>
 </html>
