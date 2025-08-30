@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vestrax Financial Holdings - About Us</title>
+  <title>Vestrax Financial Holdings - Careers</title>
   <link rel="icon" href="vestraxlogo.png" type="image/png">
   <style>
     body {
@@ -42,7 +42,6 @@
     nav {
       display: flex;
       align-items: center;
-      position: relative;
     }
 
     nav a {
@@ -56,8 +55,55 @@
     nav a:hover {
       text-decoration: underline;
     }
+	
+	/* Ticker */
+    .ticker-container {
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
-    /* Dropdown Menu */
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerMove 20s linear infinite;
+    }
+
+    .ticker-container:hover .ticker {
+      animation-play-state: paused;
+    }
+
+    .ticker a {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .ticker a:hover {
+      background-color: #333;
+      color: #ffcc00;
+      cursor: pointer;
+    }
+
+    .ticker-symbol {
+      font-weight: bold;
+    }
+
+    .ticker-price {
+      font-weight: normal;
+    }
+
+    .ticker-price b {
+      font-weight: bold;
+    }
+
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
     .dropdown {
       position: relative;
     }
@@ -92,53 +138,49 @@
       padding: 20px;
     }
 
-    h1, h2 {
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    h2 {
       border-bottom: 2px solid #222;
       padding-bottom: 5px;
+      margin-top: 40px;
     }
 
-    /* Ticker */
-    .ticker-container {
-      background-color: #111;
-      color: white;
-      overflow: hidden;
-      white-space: nowrap;
+    .job-listing {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
     }
-    .ticker {
+
+    .job-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .job-details {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .apply-button {
       display: inline-block;
-      padding-left: 100%;
-      animation: tickerMove 20s linear infinite;
-    }
-    .ticker-container:hover .ticker {
-      animation-play-state: paused;
-    }
-    .ticker a {
+      padding: 8px 12px;
+      background-color: #0077cc;
       color: white;
+      border-radius: 5px;
       text-decoration: none;
-      margin: 0 30px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .ticker a:hover {
-      background-color: #333;
-      color: #ffcc00;
-      cursor: pointer;
-    }
-    .ticker-symbol {
       font-weight: bold;
     }
-    .ticker-price {
-      font-weight: normal;
-    }
-    @keyframes tickerMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+
+    .apply-button:hover {
+      background-color: #005999;
     }
 
-    main {
-      padding: 20px;
-    }
-
-    /* Footer */
     footer {
       background-color: #222;
       color: white;
@@ -189,7 +231,7 @@
         </div>
       </div>
 	  <a href="careers.html">Careers</a>
-	  <div class="dropdown">
+      <div class="dropdown">
         <a href="#">Public Relations ▼</a>
         <div class="dropdown-content">
           <a href="investor-relations.html">Investor Relations</a>
@@ -198,34 +240,58 @@
       </div>
     </nav>
   </header>
-
+  
   <!-- Ticker -->
   <div class="ticker-container">
     <div class="ticker">
-      <a href="investment1.html"><span class="ticker-symbol">VFHF</span> <span class="ticker-price">$123.45 <b>(+1.23%)</b></span></a>
-	  <a href="investment2.html"><span class="ticker-symbol">VFHA</span> <span class="ticker-price">$234.56 <b>(-0.45%)</b></span></a>
-	  <a href="investment3.html"><span class="ticker-symbol">VFHB</span> <span class="ticker-price">$345.67 <b>(+0.89%)</b></span></a>
-
+      <a href="investment1.html"><span class="ticker-symbol">VFHF</span> <span class="ticker-price">$123.45</span> <span class="ticker-change">(+1.23%)</span></a>
+      <a href="investment2.html"><span class="ticker-symbol">VFHA</span> <span class="ticker-price">$234.56</span> <span class="ticker-change">(-0.45%)</span></a>
+      <a href="investment3.html"><span class="ticker-symbol">VFHB</span> <span class="ticker-price">$345.67</span> <span class="ticker-change">(+0.89%)</span></a>
     </div>
   </div>
 
   <main>
-    <h1>About Us</h1>
-    <section>
-      <h2>Our Mission</h2>
-      <p>Vestrax Financial Holdings is dedicated to providing transparent, strategic investment opportunities with a focus on long-term growth and financial security.</p>
-    </section>
+    <h1>Careers at Vestrax Financial Holdings</h1>
+    <p>Join our team of financial innovators! Explore our current openings below and apply to become a part of Vestrax Financial Holdings.</p>
 
-    <section>
-      <h2>Our Team</h2>
-      <p>Our team consists of experienced investment managers, analysts, and financial experts committed to delivering value to our stakeholders.</p>
-    </section>
+    <section id="open-positions">
+      <h2>Open Positions</h2>
 
-    <section>
-      <h2>Our Philosophy</h2>
-      <p>We believe in disciplined investment strategies, rigorous research, and fostering strong relationships with our investors.</p>
+      <div class="job-listing">
+        <div class="job-title">Financial Analyst</div>
+        <div class="job-details">
+          Location: New York, NY | Department: Investments | Employment Type: Full-Time
+        </div>
+        <div class="job-description">
+          Assist in analyzing investment opportunities, preparing reports, and supporting portfolio management activities.
+        </div>
+        <a href="apply-financial-analyst.html" class="apply-button">Apply Now</a>
+      </div>
+
+      <div class="job-listing">
+        <div class="job-title">Software Developer</div>
+        <div class="job-details">
+          Location: Remote | Department: Technology | Employment Type: Full-Time
+        </div>
+        <div class="job-description">
+          Develop and maintain internal financial tools, dashboards, and reporting systems to support investment operations.
+        </div>
+        <a href="apply-software-developer.html" class="apply-button">Apply Now</a>
+      </div>
+
+      <div class="job-listing">
+        <div class="job-title">Investor Relations Associate</div>
+        <div class="job-details">
+          Location: New York, NY | Department: Public Relations | Employment Type: Full-Time
+        </div>
+        <div class="job-description">
+          Manage communication with investors, prepare quarterly reports, and assist with earnings releases and investor events.
+        </div>
+        <a href="apply-ir-associate.html" class="apply-button">Apply Now</a>
+      </div>
     </section>
   </main>
+
   <footer>
     <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
     <div class="footer-links">
@@ -236,6 +302,5 @@
     </div>
     <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
   </footer>
-
 </body>
 </html>
