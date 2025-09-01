@@ -22,13 +22,21 @@
       padding: 20px 0;
     }
     .header-logo img {
-      height: 60px;
+      height: 50px;
       vertical-align: middle;
     }
     .header-logo span {
-      font-size: 36px;
+      font-size: 34px;
       font-weight: bold;
       vertical-align: middle;
+      margin-left: 10px;
+    }
+    .header-logo a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .motto {
       font-size: 18px;
@@ -58,10 +66,10 @@
     }
     .nav-left a:hover { background-color: #444; }
     .invest-btn {
-      background-color: #ffcc00;
-      color: #222;
+      background-color: #d4af37; /* Softer gold */
+      color: #000;
       font-weight: bold;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 5px;
       text-decoration: none;
     }
@@ -88,16 +96,28 @@
     .dropdown-content a:hover { background-color: #555; }
     .dropdown:hover .dropdown-content { display: flex; }
 
-    /* Ticker Placeholder Styling */
-    #ticker-container {
+    /* Stock Ticker */
+    .ticker-wrap {
       width: 100%;
-      background-color: #111;
-      color: white;
-      font-size: 18px;
       overflow: hidden;
+      background: #111;
+      color: #fff;
       white-space: nowrap;
-      padding: 10px 0;
-      text-align: center;
+      border-bottom: 2px solid #444;
+    }
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: ticker 20s linear infinite;
+    }
+    .ticker span {
+      display: inline-block;
+      padding: 0 2rem;
+      font-size: 18px;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
 
     /* Hero Section */
@@ -194,7 +214,7 @@
 
 <header>
   <div class="header-logo">
-    <a href="index.html" style="color: white; text-decoration: none;">
+    <a href="index.html">
       <img src="vestraxlogo.png" alt="Vestrax Logo">
       <span>Vestrax Financial Holdings</span>
     </a>
@@ -228,20 +248,26 @@
 </header>
 
 <!-- Stock Ticker -->
-<div id="ticker-container">Loading ticker...</div>
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker-container">Loading ticker...</div>
+</div>
+
 <script>
-  fetch('ticker.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Ticker file not found');
-      return response.text();
-    })
-    .then(data => {
-      document.getElementById('ticker-container').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error loading ticker:', error);
-      document.getElementById('ticker-container').textContent = 'Ticker unavailable';
-    });
+fetch('ticker.html')
+  .then(response => response.text())
+  .then(data => {
+    const ticker = document.getElementById('ticker-container');
+    ticker.innerHTML = data;
+
+    // Restart animation after content loads
+    ticker.style.animation = 'none';
+    ticker.offsetHeight; // trigger reflow
+    ticker.style.animation = null;
+  })
+  .catch(error => {
+    console.error('Error loading ticker:', error);
+    document.getElementById('ticker-container').textContent = 'Ticker unavailable';
+  });
 </script>
 
 <section class="hero">
