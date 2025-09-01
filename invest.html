@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invest with Vestrax Financial Holdings</title>
+  <link rel="icon" href="vestraxlogo.png" type="image/png">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .header-logo img {
+      height: 60px;
+      vertical-align: middle;
+    }
+    .header-logo span {
+      font-size: 36px;
+      font-weight: bold;
+      vertical-align: middle;
+    }
+    .motto {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 5px;
+      color: #ccc;
+    }
+
+    /* Navigation */
+    .header-nav { display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px 20px; flex-wrap: wrap; }
+    .nav-left, .nav-right { display: flex; align-items: center; }
+    .nav-left a { color: white; margin-right: 15px; text-decoration: none; font-weight: bold; padding: 8px 12px; border-radius: 5px; transition: background 0.3s; }
+    .nav-left a:hover { background-color: #444; }
+    .invest-btn { background-color: #ffcc00; color: #222; font-weight: bold; padding: 8px 12px; border-radius: 5px; text-decoration: none; }
+    .invest-btn:hover { background-color: #b8942c; }
+
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: #444; min-width: 160px; flex-direction: column; z-index: 1; border-radius: 4px; }
+    .dropdown-content a { color: white; padding: 10px; text-decoration: none; display: block; }
+    .dropdown-content a:hover { background-color: #555; }
+    .dropdown:hover .dropdown-content { display: flex; }
+	
+	/* Stock Ticker */
+    .ticker-container {
+      background-color: #111;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerMove 20s linear infinite;
+    }
+    .ticker-container:hover .ticker { animation-play-state: paused; }
+    .ticker a {
+      color: white;
+      text-decoration: none;
+      margin: 0 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .ticker a:hover { background-color: #333; color: #ffcc00; cursor: pointer; }
+    @keyframes tickerMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    /* Hero Section */
+    .hero {
+      background: #ffcc00 url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+      color: #222;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .hero a {
+      background: #222;
+      color: #ffcc00;
+      text-decoration: none;
+      padding: 12px 25px;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .hero a:hover {
+      background: #444;
+    }
+
+    /* Investment Options */
+    .invest-options {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 20px;
+      justify-content: center;
+    }
+    .option-card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    .option-card:hover {
+      transform: translateY(-5px);
+    }
+    .option-card h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .option-card p {
+      font-size: 1em;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .option-card a {
+      display: inline-block;
+      background: #222;
+      color: #ffcc00;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .option-card a:hover {
+      background: #444;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+    footer .footer-links { margin: 10px 0; }
+    footer .footer-links a { color: #ffcc00; text-decoration: none; margin: 0 10px; }
+    footer .footer-links a:hover { text-decoration: underline; }
+    footer .discord-link { display: inline-block; margin-top: 10px; padding: 8px 12px; background-color: #5865F2; color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    footer .discord-link:hover { background-color: #4752C4; }
+
+    @media(max-width: 900px){
+      .invest-options {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">
+    <img src="vestraxlogo.png" alt="Vestrax Logo">
+    <a href="index.html" style="color: white; text-decoration: none;">
+      <span>Vestrax Financial Holdings</span>
+    </a>
+  </div>
+  <div class="motto">Empowering Your Financial Future</div>
+  <nav class="header-nav">
+    <div class="nav-left">
+      <a href="about.html">About Us</a>
+      <div class="dropdown">
+        <a href="#">Investments ▼</a>
+        <div class="dropdown-content">
+          <a href="hedgefund.html">Hedge Fund</a>
+          <a href="vfha.html">Vestrax Class A Shares</a>
+          <a href="vfhb.html">Vestrax Class B Shares</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Public Relations ▼</a>
+        <div class="dropdown-content">
+          <a href="investor-relations.html">Investor Relations</a>
+          <a href="media-relations.html">Media Relations</a>
+        </div>
+      </div>
+      <a href="news.html">News</a>
+	  <a href="careers.html">Careers</a>
+    </div>
+    <div class="nav-right">
+      <a href="invest.html" class="invest-btn">Invest Now</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Stock Ticker -->
+<div class="ticker-container">
+  <div class="ticker">
+    <a href="hedgefund.html">VFHF $123.45 (+1.23%)</a>
+    <a href="vfha.html">VFHA $234.56 (-0.45%)</a>
+    <a href="vfhb.html">VFHB $345.67 (+0.89%)</a>
+    <a href="vfha.html">VFHA $238.12 (+1.56%)</a>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Invest with Vestrax</h1>
+  <p>Join our diverse portfolio of investment opportunities and grow your wealth with confidence.</p>
+  <a href="#invest-options">View Options</a>
+</section>
+
+<div class="invest-options" id="invest-options">
+  <div class="option-card">
+    <h3>Hedge Fund</h3>
+    <p>Access our exclusive hedge fund investments with strong historical performance.</p>
+    <a href="hedgefund.html">Learn More</a>
+  </div>
+  <div class="option-card">
+    <h3>Vestrax Class A Shares</h3>
+    <p>Invest in our Class A shares and enjoy preferred growth opportunities.</p>
+    <a href="vfha.html">Learn More</a>
+  </div>
+  <div class="option-card">
+    <h3>Vestrax Class B Shares</h3>
+    <p>Our Class B shares offer flexible entry points for investors of all levels.</p>
+    <a href="vfhb.html">Learn More</a>
+  </div>
+  <div class="option-card">
+    <h3>Vestrax Asset Bonds</h3>
+    <p>Invest in our Asset-Backed Security Bonds for stable returns backed by tangible assets.</p>
+    <a href="vfhabs.html">Learn More</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
+  <div class="footer-links">
+    <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
+    <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
+    <a href="about.html">Our Staff</a> |
+    <a href="careers.html">Join Our Team</a>
+  </div>
+  <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
+</footer>
+
+</body>
+</html>

@@ -10,67 +10,92 @@
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: #f8f9fa;
+      color: #333;
     }
 
+    /* Header */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
+      text-align: center;
       background-color: #222;
       color: white;
+      padding: 20px 0;
     }
 
-    header a.logo-container {
+    .header-logo {
       display: flex;
+      justify-content: center;
       align-items: center;
-      text-decoration: none;
-      color: white;
     }
 
-    header img.logo {
-      height: 50px;
-      cursor: pointer;
+    .header-logo img {
+      height: 60px;
     }
 
-    header span.company-name {
+    .header-logo span {
+      font-size: 36px;
+      font-weight: bold;
       margin-left: 10px;
-      font-weight: bold;
-      font-size: 18px;
     }
 
-    nav {
+    .motto {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 5px;
+      color: #ccc;
+    }
+
+    /* Navigation */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-left, .nav-right {
       display: flex;
       align-items: center;
-      position: relative;
     }
 
-    nav a {
+    .nav-left a {
       color: white;
-      margin-left: 20px;
+      margin-right: 15px;
       text-decoration: none;
       font-weight: bold;
-      position: relative;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .nav-left a:hover { background-color: #444; }
+
+    .invest-btn {
+      background-color: #ffcc00;
+      color: #222;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
     }
 
-    /* Dropdown Menu */
-    .dropdown {
-      position: relative;
-    }
+    .invest-btn:hover { background-color: #b8942c; }
+
+    /* Dropdown */
+    .dropdown { position: relative; }
 
     .dropdown-content {
       display: none;
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #333;
+      background-color: #444;
       min-width: 160px;
-      z-index: 1;
       flex-direction: column;
+      z-index: 1;
+      border-radius: 4px;
     }
 
     .dropdown-content a {
@@ -80,13 +105,8 @@
       display: block;
     }
 
-    .dropdown-content a:hover {
-      background-color: #444;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
+    .dropdown-content a:hover { background-color: #555; }
+    .dropdown:hover .dropdown-content { display: flex; }
 
     /* Ticker */
     .ticker-container {
@@ -95,59 +115,30 @@
       overflow: hidden;
       white-space: nowrap;
     }
+
     .ticker {
       display: inline-block;
       padding-left: 100%;
       animation: tickerMove 20s linear infinite;
     }
-    .ticker-container:hover .ticker {
-      animation-play-state: paused;
-    }
+
+    .ticker-container:hover .ticker { animation-play-state: paused; }
     .ticker a {
       color: white;
       text-decoration: none;
       margin: 0 30px;
       transition: background-color 0.3s, color 0.3s;
     }
-    .ticker a:hover {
-      background-color: #333;
-      color: #ffcc00;
-      cursor: pointer;
-    }
-    .ticker-symbol {
-      font-weight: bold;
-    }
-    .ticker-price {
-      font-weight: normal;
-    }
-    @keyframes tickerMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
 
-    main {
-      padding: 20px;
-    }
+    .ticker a:hover { background-color: #333; color: #ffcc00; cursor: pointer; }
+    .ticker-symbol { font-weight: bold; }
+    .ticker-price b { font-weight: bold; }
 
-    section {
-      margin-bottom: 40px;
-    }
+    @keyframes tickerMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-    h2 {
-      border-bottom: 2px solid #222;
-      padding-bottom: 5px;
-    }
-
-    a.pdf-link {
-      display: inline-block;
-      margin: 5px 0;
-      color: #0077cc;
-      text-decoration: underline;
-    }
-
-    a.pdf-link:hover {
-      color: #005999;
-    }
+    main { padding: 20px; }
+    h1 { margin-bottom: 20px; }
+    h2 { border-bottom: 2px solid #222; padding-bottom: 5px; margin-top: 30px; }
 
     /* Footer */
     footer {
@@ -157,17 +148,10 @@
       padding: 20px;
       font-size: 14px;
     }
-    footer .footer-links {
-      margin: 10px 0;
-    }
-    footer .footer-links a {
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer .footer-links a:hover {
-      text-decoration: underline;
-    }
+
+    footer .footer-links { margin: 10px 0; }
+    footer .footer-links a { color: #ffcc00; text-decoration: none; margin: 0 10px; }
+    footer .footer-links a:hover { text-decoration: underline; }
     footer .discord-link {
       display: inline-block;
       margin-top: 10px;
@@ -178,18 +162,38 @@
       text-decoration: none;
       font-weight: bold;
     }
-    footer .discord-link:hover {
-      background-color: #4752C4;
+    footer .discord-link:hover { background-color: #4752C4; }
+
+    /* Press Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
     }
+
+    th, td {
+      border: 1px solid #222;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th { background-color: #222; color: white; }
+    a { text-decoration: none; color: #0073e6; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" class="logo-container">
-      <img src="vestraxlogo.png" alt="Vestrax Logo" class="logo">
-      <span class="company-name">Vestrax Financial Holdings</span>
-    </a>
-    <nav>
+  <a href="index.html" style="text-decoration: none; color: inherit;">
+    <div class="header-logo">
+      <img src="vestraxlogo.png" alt="Vestrax Logo">
+      <span>Vestrax Financial Holdings</span>
+    </div>
+    <div class="motto">Empowering Your Financial Future</div>
+  </a>
+
+  <nav class="header-nav">
+    <div class="nav-left">
       <a href="about.html">About Us</a>
       <div class="dropdown">
         <a href="#">Investments ▼</a>
@@ -199,16 +203,22 @@
           <a href="vfhb.html">Vestrax Class B Shares</a>
         </div>
       </div>
-	  <a href="careers.html">Careers</a>
-	  <div class="dropdown">
+      <div class="dropdown">
         <a href="#">Public Relations ▼</a>
         <div class="dropdown-content">
           <a href="investor-relations.html">Investor Relations</a>
           <a href="media-relations.html">Media Relations</a>
         </div>
       </div>
-    </nav>
-  </header>
+      <a href="news.html">News</a>
+      <a href="careers.html">Careers</a>
+    </div>
+    <div class="nav-right">
+      <a href="invest.html" class="invest-btn">Invest Now</a>
+    </div>
+  </nav>
+</header>
+
 
   <!-- Ticker -->
   <div class="ticker-container">
@@ -231,9 +241,9 @@
 
     <section id="press-releases">
       <h2>Latest Press Releases</h2>
-      <table id="press-releases-table" border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+      <table>
         <thead>
-          <tr style="background-color: #222; color: white;">
+          <tr>
             <th>Date</th>
             <th>Title</th>
             <th>Download</th>
@@ -258,7 +268,7 @@
   <footer>
     <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
     <div class="footer-links">
-      <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing ">Terms of Service</a> |
+      <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
       <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
       <a href="about.html">Our Staff</a> |
       <a href="careers.html">Join Our Team</a>

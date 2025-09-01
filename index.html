@@ -16,6 +16,8 @@
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: #f8f9fa;
+      color: #333;
     }
 
     /* Header */
@@ -27,48 +29,67 @@
     }
 
     .header-logo img {
-      height: 80px;
+      height: 60px;
       vertical-align: middle;
     }
 
     .header-logo span {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: bold;
       vertical-align: middle;
+    }
+
+    .motto {
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 5px;
+      color: #ccc;
     }
 
     /* Navigation */
     .header-nav {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       background-color: #333;
       padding: 10px 20px;
-      max-width: 1200px;
-      margin: 10px auto 0 auto;
       flex-wrap: wrap;
     }
 
-    .header-nav a {
-      color: white;
-      margin-right: 20px;
-      text-decoration: none;
-      font-weight: bold;
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
     }
 
-    .header-nav .invest-btn {
-      margin-left: auto;
-      background-color: #ffcc00;
+    .nav-left a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .nav-left a:hover {
+      background-color: #444;
+    }
+
+    .invest-btn {
+      background-color: #ffcc00; /* darker gold */
       color: #222;
+      font-weight: bold;
       padding: 8px 12px;
       border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
+    }
+
+    .invest-btn:hover {
+      background-color: #b8942c;
     }
 
     .dropdown {
       position: relative;
-      margin-right: 20px;
     }
 
     .dropdown-content {
@@ -129,28 +150,171 @@
       cursor: pointer;
     }
 
-    .ticker-symbol {
-      font-weight: bold;
-    }
-
-    .ticker-price {
-      font-weight: normal;
-    }
-
     @keyframes tickerMove {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
 
-    /* Main content */
-    main {
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: #ddd url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-top: 20px; /* moved lower */
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .hero a {
+      background: #ffcc00;
+      color: #222;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .hero a:hover {
+      background: #e6b800;
     }
 
-    main h1 {
+    /* Investments & Latest News Container */
+    .invest-latest-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    /* Rotating Investments (Google Sheet Carousel) */
+    .rotating-investments {
+      flex: 1 1 600px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    .rotating-investments h2 {
       margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .investment-frame {
+      width: 100%;
+      height: 434px;
+      border: none;
+      border-radius: 5px;
+      display: none;
+    }
+
+    /* Latest News Section */
+    .latest-news {
+      flex: 1 1 400px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* evenly spaced */
+      height: 100%;
+    }
+
+    .latest-news h2 {
+      margin-bottom: 10px;
+    }
+
+    .latest-news ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .latest-news li {
+      margin-bottom: 10px;
+    }
+
+    .latest-news a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+
+    .latest-news a:hover {
+      text-decoration: underline;
+    }
+
+    .news-date {
+      font-size: 0.85em;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    /* News Stories Section */
+    .news-stories {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .news-card {
+      display: flex;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+    .news-card img {
+      width: 671px;
+      height: 361px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .news-content h3 {
+      font-size: 1.5em;
+      margin-bottom: 5px;
+    }
+    .news-content .news-meta {
+      font-size: 0.85em;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .news-content p {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .news-content a {
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
     }
 
     /* Footer */
@@ -160,6 +324,7 @@
       text-align: center;
       padding: 20px;
       font-size: 14px;
+      margin-top: 40px;
     }
 
     footer .footer-links {
@@ -191,87 +356,259 @@
       background-color: #4752C4;
     }
 
+    @media(max-width: 900px){
+      .invest-latest-container, .news-card {
+        flex-direction: column;
+      }
+      .news-card img {
+        width: 100%;
+        height: auto;
+      }
+    }
+	/* Popup Overlay */
+  #popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+
+  /* Popup Overlay */
+  #popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  #popup-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Popup Box */
+  #popup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  }
+
+  #popup-overlay.show #popup-box {
+    transform: scale(1);
+  }
+
+  #popup-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
   </style>
 </head>
+<!-- Popup Modal -->
+<div id="popup-overlay" style="display:none;">
+  <div id="popup-box">
+    <h2>Welcome to Vestrax Financial Holdings!</h2>
+    <p>Explore our investment opportunities and latest news.</p>
+    <button id="close-popup">Close</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Show popup if not shown this session
+  if (!sessionStorage.getItem('popupShown')) {
+    setTimeout(() => {
+      const overlay = document.getElementById('popup-overlay');
+      overlay.style.display = 'flex';
+      requestAnimationFrame(() => overlay.classList.add('show'));
+
+      document.getElementById('close-popup').addEventListener('click', function() {
+        overlay.classList.remove('show'); // fade out
+        setTimeout(() => overlay.style.display = 'none', 300); // hide after fade
+        sessionStorage.setItem('popupShown', 'true'); // mark as shown
+      });
+    }, 2500); // 2.5 second delay
+  }
+});
+</script>
+
+
+
 <body>
 
-  <header style="background-color: #222; color: white; text-align: center; padding: 20px 0;">
-  <!-- Logo + Company Name + Motto -->
+<header>
   <div class="header-logo">
-    <img src="vestraxlogo.png" alt="Vestrax Logo" style="height: 60px; vertical-align: middle;">
+    <img src="vestraxlogo.png" alt="Vestrax Logo">
     <a href="index.html" style="color: white; text-decoration: none;">
-      <span style="font-size: 40px; font-weight: bold; vertical-align: middle;">Vestrax Financial Holdings</span>
+      <span>Vestrax Financial Holdings</span>
     </a>
   </div>
-  <div style="font-size: 18px; font-style: italic; margin-top: 5px; color: #ccc;">
+  <div class="motto">
     Empowering Your Financial Future
   </div>
-
-  <!-- Navigation BELOW logo/name/motto, CENTERED -->
-  <nav class="header-nav" style="display: inline-flex; justify-content: center; align-items: center; margin-top: 15px; background-color: #333; padding: 10px 20px; border-radius: 8px;">
-    <a href="about.html" style="color: white; margin: 0 15px; text-decoration: none; font-weight: bold;">About Us</a>
-
-    <div class="dropdown" style="margin: 0 15px; position: relative;">
-      <a href="#" style="color: white; text-decoration: none; font-weight: bold;">Investments ▼</a>
-      <div class="dropdown-content" style="display: none; position: absolute; top: 100%; left: 0; background-color: #444; min-width: 160px; flex-direction: column; z-index: 1;">
-        <a href="hedgefund.html" style="color: white; padding: 10px; display: block; text-decoration: none;">Hedge Fund</a>
-        <a href="vfha.html" style="color: white; padding: 10px; display: block; text-decoration: none;">Vestrax Class A Shares</a>
-        <a href="vfhb.html" style="color: white; padding: 10px; display: block; text-decoration: none;">Vestrax Class B Shares</a>
+  <nav class="header-nav">
+    <div class="nav-left">
+      <a href="about.html">About Us</a>
+      <div class="dropdown">
+        <a href="#">Investments ▼</a>
+        <div class="dropdown-content">
+          <a href="hedgefund.html">Hedge Fund</a>
+          <a href="vfha.html">Vestrax Class A Shares</a>
+          <a href="vfhb.html">Vestrax Class B Shares</a>
+        </div>
       </div>
-    </div>
-
-    <div class="dropdown" style="margin: 0 15px; position: relative;">
-      <a href="#" style="color: white; text-decoration: none; font-weight: bold;">Public Relations ▼</a>
-      <div class="dropdown-content" style="display: none; position: absolute; top: 100%; left: 0; background-color: #444; min-width: 160px; flex-direction: column; z-index: 1;">
-        <a href="investor-relations.html" style="color: white; padding: 10px; display: block; text-decoration: none;">Investor Relations</a>
-        <a href="media-relations.html" style="color: white; padding: 10px; display: block; text-decoration: none;">Media Relations</a>
+      <div class="dropdown">
+        <a href="#">Public Relations ▼</a>
+        <div class="dropdown-content">
+          <a href="investor-relations.html">Investor Relations</a>
+          <a href="media-relations.html">Media Relations</a>
+        </div>
       </div>
+      <a href="news.html">News</a>
+      <a href="careers.html">Careers</a>
     </div>
-
-    <a href="careers.html" style="color: white; margin: 0 15px; text-decoration: none; font-weight: bold;">Careers</a>
-
-    <a href="invest.html" style="margin: 0 15px; background-color: #ffcc00; color: #222; padding: 8px 12px; border-radius: 5px; text-decoration: none; font-weight: bold;">Invest Now</a>
+    <div class="nav-right">
+      <a href="invest.html" class="invest-btn">Invest Now</a>
+    </div>
   </nav>
 </header>
 
-  <!-- Ticker -->
-  <div class="ticker-container">
-    <div class="ticker">
-      <a href="hedgefund.html"><span class="ticker-symbol">VFHF</span> <span class="ticker-price">$123.45</span> <span class="ticker-change">(+1.23%)</span></a>
-      <a href="vfha.html"><span class="ticker-symbol">VFHA</span> <span class="ticker-price">$234.56</span> <span class="ticker-change">(-0.45%)</span></a>
-      <a href="vfhb.html"><span class="ticker-symbol">VFHB</span> <span class="ticker-price">$345.67</span> <span class="ticker-change">(+0.89%)</span></a>
+<!-- Ticker -->
+<div class="ticker-container">
+  <div class="ticker">
+    <a href="hedgefund.html">VFHF $123.45 (+1.23%)</a>
+    <a href="vfha.html">VFHA $234.56 (-0.45%)</a>
+    <a href="vfhb.html">VFHB $345.67 (+0.89%)</a>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Breaking Market News</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ligula nec nulla efficitur consequat.</p>
+  <a href="#">Read More</a>
+</section>
+
+<!-- Investments & Latest News Section -->
+<div class="invest-latest-container">
+  <div class="rotating-investments">
+    <h2>Investments</h2>
+    <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1242268346&amp;format=interactive"></iframe>
+    <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=287222736&amp;format=interactive"></iframe>
+    <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1512453944&amp;format=interactive"></iframe>
+  </div>
+  <div class="latest-news">
+    <h2>Latest News</h2>
+    <ul>
+      <li>
+        <a href="#">Headline 1 - Lorem ipsum dolor sit amet</a>
+        <div class="news-date">Sep 1, 2025</div>
+      </li>
+      <li>
+        <a href="#">Headline 2 - Consectetur adipiscing elit</a>
+        <div class="news-date">Aug 31, 2025</div>
+      </li>
+      <li>
+        <a href="#">Headline 3 - Sed do eiusmod tempor</a>
+        <div class="news-date">Aug 30, 2025</div>
+      </li>
+      <li>
+        <a href="#">Headline 4 - Incididunt ut labore</a>
+        <div class="news-date">Aug 29, 2025</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- News Stories Section -->
+<section class="news-stories">
+  <div class="news-card">
+    <img src="https://via.placeholder.com/671x361" alt="News Image">
+    <div class="news-content">
+      <h3>Top Story 1</h3>
+      <div class="news-meta">Editor: John Doe, Sep 1, 2025</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <a href="#">Read More</a>
     </div>
   </div>
-
-  <!-- Main content -->
-  <main>
-    <h1>Welcome to Vestrax Financial Holdings</h1>
-    <p>Your trusted partner in investment solutions. Explore our portfolios, reports, and financial insights below.</p>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
-    <div class="footer-links">
-      <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
-      <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
-      <a href="about.html">Our Staff</a> |
-      <a href="careers.html">Join Our Team</a>
+  <div class="news-card">
+    <img src="https://via.placeholder.com/671x361" alt="News Image">
+    <div class="news-content">
+      <h3>Top Story 2</h3>
+      <div class="news-meta">Editor: Jane Smith, Aug 31, 2025</div>
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+      <a href="#">Read More</a>
     </div>
-    <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
-  </footer>
+  </div>
+  <div class="news-card">
+    <img src="https://via.placeholder.com/671x361" alt="News Image">
+    <div class="news-content">
+      <h3>Top Story 3</h3>
+      <div class="news-meta">Editor: Alex Brown, Aug 30, 2025</div>
+      <p>Donec convallis lorem a sapien posuere, eget aliquam elit finibus.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Dropdown hover functionality
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-      dropdown.addEventListener('mouseenter', () => {
-        dropdown.querySelector('.dropdown-content').style.display = 'flex';
-      });
-      dropdown.addEventListener('mouseleave', () => {
-        dropdown.querySelector('.dropdown-content').style.display = 'none';
-      });
+<!-- Footer -->
+<footer>
+  <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
+  <div class="footer-links">
+    <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
+    <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
+    <a href="about.html">Our Staff</a> |
+    <a href="careers.html">Join Our Team</a>
+  </div>
+  <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
+</footer>
+
+<script>
+  // Dropdown hover functionality
+  document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', () => {
+      dropdown.querySelector('.dropdown-content').style.display = 'flex';
     });
-  </script>
+    dropdown.addEventListener('mouseleave', () => {
+      dropdown.querySelector('.dropdown-content').style.display = 'none';
+    });
+  });
+
+  // Rotating investments carousel
+  const frames = document.querySelectorAll('.investment-frame');
+  let current = 0;
+  function showNextFrame() {
+    frames.forEach((f, i) => f.style.display = i === current ? 'block' : 'none');
+    current = (current + 1) % frames.length;
+  }
+  showNextFrame();
+  setInterval(showNextFrame, 5000); // rotates every 5 seconds
+</script>
 
 </body>
 </html>
