@@ -40,27 +40,44 @@
     .dropdown-content a:hover { background-color: #555; }
     .dropdown:hover .dropdown-content { display: flex; }
 
-    /* Stock Ticker */
+    /* Ticker */
     .ticker-container {
       background-color: #111;
       color: white;
       overflow: hidden;
       white-space: nowrap;
     }
+
     .ticker {
       display: inline-block;
       padding-left: 100%;
       animation: tickerMove 20s linear infinite;
     }
-    .ticker-container:hover .ticker { animation-play-state: paused; }
+
+    .ticker-container:hover .ticker {
+      animation-play-state: paused;
+    }
+
     .ticker a {
       color: white;
       text-decoration: none;
       margin: 0 30px;
       transition: background-color 0.3s, color 0.3s;
     }
-    .ticker a:hover { background-color: #333; color: #ffcc00; cursor: pointer; }
-    @keyframes tickerMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    .ticker a:hover {
+      background-color: #333;
+      color: #ffcc00;
+      cursor: pointer;
+    }
+
+    .ticker-symbol { font-weight: bold; }
+    .ticker-price b { font-weight: bold; }
+
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
 
     /* News Page Styles */
     .news-page {
