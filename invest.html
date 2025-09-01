@@ -40,26 +40,42 @@
     .dropdown:hover .dropdown-content { display: flex; }
 
     /* Stock Ticker */
-    .ticker-container {
-      background-color: #111;
-      color: white;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .ticker {
-      display: inline-block;
-      padding-left: 100%;
-      animation: tickerMove 20s linear infinite;
-    }
-    .ticker-container:hover .ticker { animation-play-state: paused; }
-    .ticker a {
-      color: white;
-      text-decoration: none;
-      margin: 0 30px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .ticker a:hover { background-color: #333; color: #ffcc00; cursor: pointer; }
-    @keyframes tickerMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+.ticker-container {
+  background-color: #111;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.ticker {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerMove 20s linear infinite;
+}
+
+.ticker-container:hover .ticker {
+  animation-play-state: paused;
+}
+
+.ticker a {
+  color: white;
+  text-decoration: none;
+  margin: 0 30px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.ticker a:hover {
+  background-color: #333;
+  color: #ffcc00;
+  cursor: pointer;
+}
+
+@keyframes tickerMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
 
     /* Hero Section */
     .hero {
@@ -223,23 +239,28 @@
 </footer>
 
 <script>
-  // Fetch ticker.html and insert into ticker container
   fetch('ticker.html')
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) throw new Error('Ticker file not found');
+      return response.text();
+    })
     .then(data => {
-      const ticker = document.getElementById('ticker-container');
-      ticker.innerHTML = data;
+      // Make sure ticker div exists
+      const tickerDiv = document.getElementById('ticker-container');
 
-      // Restart animation
-      ticker.style.animation = 'none';
-      ticker.offsetHeight; // force reflow
-      ticker.style.animation = null;
+      // Wrap content in a .ticker div if not already wrapped
+      if (!data.includes('class="ticker"')) {
+        tickerDiv.innerHTML = `<div class="ticker">${data}</div>`;
+      } else {
+        tickerDiv.innerHTML = data;
+      }
     })
     .catch(error => {
       console.error('Error loading ticker:', error);
       document.getElementById('ticker-container').textContent = 'Ticker unavailable';
     });
 </script>
+
 
 </body>
 </html>
