@@ -176,11 +176,8 @@
 
 <!-- Stock Ticker -->
 <div class="ticker-container">
-  <div class="ticker">
-    <a href="hedgefund.html">VFHF $123.45 (+1.23%)</a>
-    <a href="vfha.html">VFHA $234.56 (-0.45%)</a>
-    <a href="vfhb.html">VFHB $345.67 (+0.89%)</a>
-    <a href="vfha.html">VFHA $238.12 (+1.56%)</a>
+  <div class="ticker" id="ticker-container">
+    Loading ticker...
   </div>
 </div>
 
@@ -248,6 +245,26 @@
     });
     loadMoreBtn.style.display = 'none';
   });
+  fetch('ticker.html')
+    .then(response => {
+      if (!response.ok) throw new Error('Ticker file not found');
+      return response.text();
+    })
+    .then(data => {
+      // Make sure ticker div exists
+      const tickerDiv = document.getElementById('ticker-container');
+
+      // Wrap content in a .ticker div if not already wrapped
+      if (!data.includes('class="ticker"')) {
+        tickerDiv.innerHTML = `<div class="ticker">${data}</div>`;
+      } else {
+        tickerDiv.innerHTML = data;
+      }
+    })
+    .catch(error => {
+      console.error('Error loading ticker:', error);
+      document.getElementById('ticker-container').textContent = 'Ticker unavailable';
+    });
 </script>
 </body>
 </html>
