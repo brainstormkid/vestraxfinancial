@@ -266,16 +266,43 @@
     <h1>Investor Relations</h1>
 
     <section id="stock-info">
-      <h2>Stock Information</h2>
-      <div class="ticker-box">
-        <div class="ticker-item"><span class="label">Current Price:</span> <span class="value" id="stock-price">$123.45</span></div>
-        <div class="ticker-item"><span class="label">Change:</span> <span class="value" id="stock-change">+1.23 (1.01%)</span></div>
-        <div class="ticker-item"><span class="label">Date:</span> <span class="value" id="stock-date"></span></div>
-      </div>
-      <script>
-        document.getElementById('stock-date').textContent = new Date().toDateString();
-      </script>
-    </section>
+  <h2>Stock Information</h2>
+  <div class="ticker-box">
+    <div class="ticker-item"><span class="label">Stock:</span> <span class="value" id="stock-name">Loading...</span></div>
+    <div class="ticker-item"><span class="label">Current Price:</span> <span class="value" id="stock-price">Loading...</span></div>
+    <div class="ticker-item"><span class="label">Change:</span> <span class="value" id="stock-change">Loading...</span></div>
+    <div class="ticker-item"><span class="label">Date:</span> <span class="value" id="stock-date"></span></div>
+  </div>
+</section>
+
+<script>
+  // Show today's date
+  document.getElementById('stock-date').textContent = new Date().toDateString();
+
+  // Fetch ticker.html dynamically
+  fetch('ticker.html?v=' + Date.now()) // prevent cache
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      
+      // Get the first ticker span (or change to another index if needed)
+      const firstTicker = doc.querySelector('.ticker span');
+      if (firstTicker) {
+        const text = firstTicker.textContent.trim(); // e.g., "VFH: $120.45 ▲1.25%"
+        
+        // Extract stock name, price, and change
+        const match = text.match(/(.*?)\:\s+\$([\d.]+)\s+([▲▼][\d.]+%)/);
+        if (match) {
+          document.getElementById('stock-name').textContent = match[1].trim();   // VFH
+          document.getElementById('stock-price').textContent = '$' + match[2];   // $120.45
+          document.getElementById('stock-change').textContent = match[3];        // ▲1.25%
+        }
+      }
+    })
+    .catch(error => console.error('Error loading ticker data:', error));
+</script>
+
 
     <section id="earnings-releases">
       <h2>Earnings Releases</h2>
@@ -298,12 +325,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="monthly"><td>Monthly</td><td>Q1 2025</td><td>January</td><td><a href="pdfs/jan-2025.pdf" target="_blank">Download PDF</a></td></tr>
-          <tr class="monthly"><td>Monthly</td><td>Q1 2025</td><td>February</td><td><a href="pdfs/feb-2025.pdf" target="_blank">Download PDF</a></td></tr>
-          <tr class="monthly"><td>Monthly</td><td>Q1 2025</td><td>March</td><td><a href="pdfs/mar-2025.pdf" target="_blank">Download PDF</a></td></tr>
-          <tr class="quarterly"><td>Quarterly</td><td>Q1 2025</td><td>Q1</td><td><a href="pdfs/q1-2025.pdf" target="_blank">Download PDF</a></td></tr>
-          <tr class="quarterly"><td>Quarterly</td><td>Q2 2025</td><td>Q2</td><td><a href="pdfs/q2-2025.pdf" target="_blank">Download PDF</a></td></tr>
-          <tr class="annual"><td>Annual</td><td>FY 2025</td><td>2025</td><td><a href="pdfs/annual-2025.pdf" target="_blank">Download PDF</a></td></tr>
+          <!-- <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>August</td><td><a href="reports/jan-2025.pdf" target="_blank">Download Excel</a></td></tr> -->
+          <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>July</td><td><a href="July 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
+		  <tr class="quarterly"><td>Quarterly</td><td>Q2 2025</td><td>Q2</td><td><a href="Q225 Report - Vestrax Financial Holdings.pdf" target="_blank">Download PDF</a></td></tr>
+          <tr class="monthly"><td>Monthly</td><td>Q2 2025</td><td>June</td><td><a href="June 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
+		  <tr class="monthly"><td>Monthly</td><td>Q2 2025</td><td>May</td><td><a href="reports/May 2025 - Vestrax Financial Statements [RESTATED].xlsx" target="_blank">Download Excel</a></td></tr>
+          <!-- <tr class="annual"><td>Annual</td><td>FY 2025</td><td>2025</td><td><a href="pdfs/annual-2025.pdf" target="_blank">Download PDF</a></td></tr> -->
         </tbody>
       </table>
 
