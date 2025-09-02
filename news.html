@@ -201,22 +201,30 @@
 <!-- News Page Content -->
 <div class="news-page" id="news-container">
   <div class="news-article">
-    <img src="https://via.placeholder.com/671x361" alt="News Image">
+    <img src="images/Narcot Logo.png" alt="News Image">
     <div class="news-content">
-      <h2>Market Soars as Tech Stocks Rally</h2>
-      <div class="news-meta">By Jane Doe | August 30, 2025</div>
-      <p>The stock market surged today as technology stocks led the rally, showing strong investor confidence in the sector.</p>
-      <a href="#">Read More</a>
+      <h2>Narcot Inc. Pharmaceuticals Initial Public Offering</h2>
+      <div class="news-meta">By brainstormkid | September 1, 2025</div>
+      <p>Placeholder</p>
+      <a href="articles/narcot-pharmaceuticals-initial-public-offering.html">Read More</a>
     </div>
   </div>
-
   <div class="news-article">
-    <img src="https://via.placeholder.com/671x361" alt="News Image">
+    <img src="images/HiveCorp Logo.png" alt="News Image">
     <div class="news-content">
-      <h2>Vestrax Launches New Hedge Fund</h2>
-      <div class="news-meta">By John Smith | August 28, 2025</div>
-      <p>Vestrax Financial Holdings has announced the launch of its new hedge fund aimed at high-growth technology investments.</p>
-      <a href="#">Read More</a>
+      <h2>HiveCorp Issues Additional Bonds</h2>
+      <div class="news-meta">By brainstormkid | September 1, 2025</div>
+      <p>Placeholder</p>
+      <a href="articles/hivecorp-issues-additional-bonds.html">Read More</a>
+    </div>
+  </div>
+  <div class="news-article">
+    <img src="images/Maestro Logo.png" alt="News Image">
+    <div class="news-content">
+      <h2>Former Maestro CEO Dumps Shares</h2>
+      <div class="news-meta">By brainstormkid | August 31, 2025</div>
+      <p>Yesterday, recently ousted CEO of Maestro Inc. and CEO of NIX Enterprise, Infonix announced his intention to sell nearly 14,000 shares of Maestro stock.</p>
+      <a href="articles/former-maestro-ceo-dumps-shares.html">Read More</a>
     </div>
   </div>
 </div>
@@ -240,9 +248,11 @@
   const loadMoreBtn = document.getElementById('load-more');
 
   const moreArticles = [
-    { title: "Quarterly Earnings Beat Expectations", editor: "Alice Johnson", date: "August 25, 2025", image: "https://via.placeholder.com/671x361", summary: "Vestrax’s quarterly earnings exceeded analyst expectations, driven by strong performance in its investment portfolio." },
-    { title: "Vestrax Expands Internationally", editor: "Robert Lee", date: "August 22, 2025", image: "https://via.placeholder.com/671x361", summary: "Vestrax opens new offices in Europe and Asia to increase its global investment reach." },
-    { title: "Tech Stocks Continue Growth", editor: "Samantha Wu", date: "August 20, 2025", image: "https://via.placeholder.com/671x361", summary: "Technology stocks remain on the rise as investor confidence grows." }
+    { title: "Maestro CEO Resigns", editor: "brainstormkid", date: "August 28, 2025", image: "images/Maestro Logo.png", summary: "Placeholder", link: "articles/maestro-ceo-resigns.html" },
+	{ title: "HiveCorp Issues XP Bonds", editor: "brainstormkid", date: "August 26, 2025", image: "images/HiveCorp Logo.png", summary: "Placeholder", link: "articles/hivecorp-issues-xp-bonds.html" },
+	{ title: "Maestro Inc. Plummets 76.92%", editor: "brainstormkid", date: "August 25, 2025", image: "images/Maestro Logo.png", summary: "Placeholder", link: "articles/maestro-short.html" },
+	{ title: "Kovac & Luxemburg Initial Public Offering", editor: "brainstormkid", date: "August 10, 2025", image: "images/KNL Logo.png", summary: "KNL CEO, Fickogames announced today a deal with Crimson Bank of selling shares of its fund through Crimson's Bot.", link: "articles/knl-ipo.html" },
+    { title: "Vestrax Initial Public Offering", editor: "brainstormkid", date: "July 17, 2025", image: "images/Vestrax HQ Rain.png", summary: "Vestrax Financial Holdings announced the issuance of 10,000 shares to the general public at $94.95.", link: "articles/vestrax-ipo.html" }
   ];
 
   loadMoreBtn.addEventListener('click', () => {
@@ -255,7 +265,7 @@
           <h2>${article.title}</h2>
           <div class="news-meta">By ${article.editor} | ${article.date}</div>
           <p>${article.summary}</p>
-          <a href="#">Read More</a>
+          <a href="${article.link}">Read More</a>
         </div>
       `;
       newsContainer.appendChild(articleDiv);
