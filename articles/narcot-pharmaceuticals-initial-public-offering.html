@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vestrax News Article</title>
-  <link rel="icon" href="vestraxlogo.png" type="image/png">
+  <link rel="icon" href="../vestraxlogo.png" type="image/png">
+  <!-- Open Graph / Discord Embed -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Vestrax Initial Public Offering">
+  <meta property="og:description" content="Vestrax Financial Holdings announced the issuance of 10,000 shares to the general public at $94.95. Crimson's prospectus projects rapid growth.">
+  <meta property="og:url" content="https://brainstormkid.github.io/articles/vestraxipo.html">
+  <meta property="og:image" content="https://brainstormkid.github.io/images/Narcot-Logo.png">
   <style>
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -150,7 +156,7 @@
 
 <!-- Article Content -->
 <div class="article-container">
-  <img class="article-image" src="../images/Vestrax HQ Rain.png" alt="News Image">
+  <img class="article-image" src="../images/Narcot-Logo.png" alt="News Image">
   <div class="article-content">
     <h1>Vestrax Initial Public Offering</h1>
     <div class="article-meta">By brainstormkid | July 17, 2025</div>
@@ -164,15 +170,15 @@
   <div class="footer-links">
     <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
     <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
-    <a href="about.html">Our Staff</a> |
-    <a href="careers.html">Join Our Team</a>
+    <a href="../about.html">Our Staff</a> |
+    <a href="../careers.html">Join Our Team</a>
   </div>
   <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
 </footer>
 
 <script>
   // Load ticker content
-  fetch('ticker.html')
+  fetch('../ticker.html')
     .then(response => response.text())
     .then(data => {
       const tickerDiv = document.getElementById('ticker-container');
