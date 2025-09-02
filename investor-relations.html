@@ -286,22 +286,30 @@
       const parser = new DOMParser();
       const doc = parser.parseFromString(data, 'text/html');
       
-      // Get the first ticker span (or change to another index if needed)
-      const firstTicker = doc.querySelector('.ticker span');
-      if (firstTicker) {
-        const text = firstTicker.textContent.trim(); // e.g., "VFH: $120.45 ▲1.25%"
-        
-        // Extract stock name, price, and change
-        const match = text.match(/(.*?)\:\s+\$([\d.]+)\s+([▲▼][\d.]+%)/);
-        if (match) {
-          document.getElementById('stock-name').textContent = match[1].trim();   // VFH
-          document.getElementById('stock-price').textContent = '$' + match[2];   // $120.45
-          document.getElementById('stock-change').textContent = match[3];        // ▲1.25%
+      // Find the ticker that starts with VFHA
+      const tickerSpans = doc.querySelectorAll('.ticker span');
+      let vfhaText = null;
+      tickerSpans.forEach(span => {
+        if (span.textContent.trim().startsWith('VFHA')) {
+          vfhaText = span.textContent.trim();
         }
+      });
+
+      if (vfhaText) {
+        // Extract stock name, price, and change
+        const match = vfhaText.match(/(.*?)\:\s+\$([\d.]+)\s+([▲▼][\d.]+%)/);
+        if (match) {
+          document.getElementById('stock-name').textContent = match[1].trim();   // VFHA
+          document.getElementById('stock-price').textContent = '$' + match[2];   // e.g., $102.10
+          document.getElementById('stock-change').textContent = match[3];        // e.g., ▲0.85%
+        }
+      } else {
+        console.warn('VFHA ticker not found.');
       }
     })
     .catch(error => console.error('Error loading ticker data:', error));
 </script>
+
 
 
     <section id="earnings-releases">
