@@ -328,6 +328,57 @@ header {
   opacity: 0.8;
 }
 
+/* Returns Section */
+.returns-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  opacity: 0;
+  transition: all 1s ease;
+}
+.returns-section.show { opacity: 1; }
+
+.returns-card {
+  background: #fff; /* matches Delivering and Investments */
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.returns-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.return-card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+}
+.return-card:hover { transform: translateY(-5px); }
+
+.return-title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.return-percentage {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.return-percentage .ytd {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 /* Footer */
 footer { background-color: #222; color: white; text-align: center; padding: 20px; font-size: 14px; margin-top: 40px; }
 footer .footer-links { margin: 10px 0; }
@@ -429,26 +480,25 @@ footer .discord-link:hover { background-color: #4752C4; }
 </section>
 
 <!-- Our Returns Section -->
-<section id="returns" class="section">
-  <div class="content-container">
+<section id="returns" class="returns-section">
+  <div class="returns-card">
     <h2 class="section-title">Our Returns</h2>
     <div class="returns-grid">
       <!-- Hedge Fund -->
       <div class="return-card">
         <h3 class="return-title">Hedge Fund</h3>
-        <p class="return-percentage">+14.6% <span class="ytd">YTD</span></p>
-        <div class="mini-chart">📈</div>
+        <p class="return-percentage">804.37%▲ <span class="ytd">YTD</span></p>
       </div>
       <!-- Vestrax Stock -->
       <div class="return-card">
         <h3 class="return-title">Vestrax Stock</h3>
-        <p class="return-percentage">+22.1% <span class="ytd">YTD</span></p>
-        <div class="mini-chart">📊</div>
+        <p class="return-percentage">26,143.82%▲ <span class="ytd">YTD</span></p>
       </div>
     </div>
     <p class="disclaimer">*Disclaimer: Returns are updated periodically. Last updated: September 2025. Past performance is not indicative of future results.</p>
   </div>
 </section>
+
 
 <!-- Quotes / Reviews Section -->
 <section class="quotes-section" id="quotes">
@@ -457,15 +507,19 @@ footer .discord-link:hover { background-color: #4752C4; }
     <div class="quotes-container">
       <div class="quote">
         <p>“VFH investment was an automatic win at the rates we purchased it at.”</p>
-        <span>- Investor, Class A Shares</span>
+        <span>- Ms. Playboy | CEO of Maestro Inc.</span>
+      </div>
+	  <div class="quote">
+        <p>“Guys buy VFH its a good investment🔥”</p>
+        <span>- Fickogames | CEO of K&L and Enchanters Guild and Coran'i Minister of Finance</span>
       </div>
       <div class="quote">
         <p>“easiest money ever”</p>
-        <span>- Investor, Hedge Fund</span>
+        <span>- Bagguete3 | Former Hedge Fund Investor</span>
       </div>
-      <div class="quote">
-        <p>“bro is the best banker ever fr”</p>
-        <span>- Investor</span>
+	  <div class="quote">
+        <p>“I did not lose the allium war, I was not in charge of it”</p>
+        <span>- Crezyman | Lost the Allium War</span>
       </div>
     </div>
   </div>
