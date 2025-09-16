@@ -1,346 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vestrax Financial Holdings</title>
-  <link rel="icon" href="vestraxlogo.png" type="image/png">
-  <meta property="og:title" content="Vestrax Financial Holdings">
-  <meta property="og:description" content="Your trusted partner for investment solutions. Explore our portfolios and financial insights.">
-  <meta property="og:image" content="https://brainstormkid.github.io/vestraxfinancial">
-  <meta property="og:url" content="https://brainstormkid.github.io/vestraxfinancial">
-  <meta property="og:type" content="website">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vestrax Financial Holdings</title>
+<link rel="icon" href="vestraxlogo.png" type="image/png">
+<meta property="og:title" content="Vestrax Financial Holdings">
+<meta property="og:description" content="Your trusted partner for investment solutions. Explore our portfolios and financial insights.">
+<meta property="og:image" content="https://brainstormkid.github.io/vestraxfinancial">
+<meta property="og:url" content="https://brainstormkid.github.io/vestraxfinancial">
+<meta property="og:type" content="website">
 
-  <style>
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
-      color: #333;
-    }
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+  overflow-x: hidden;
+}
 
-    /* Header */
-    header {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
+/* Header */
+header {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+.header-logo img { height: 60px; vertical-align: middle; }
+.header-logo span { font-size: 36px; font-weight: bold; vertical-align: middle; }
+.motto { font-size: 18px; font-style: italic; margin-top: 5px; color: #ccc; }
 
-    .header-logo img {
-      height: 60px;
-      vertical-align: middle;
-    }
+/* Navigation */
+.header-nav { display: flex; justify-content: space-between; align-items: center; background-color: #333; padding: 10px 20px; flex-wrap: wrap; }
+.nav-left, .nav-right { display: flex; align-items: center; }
+.nav-left a { color: white; margin-right: 15px; text-decoration: none; font-weight: bold; padding: 8px 12px; border-radius: 5px; transition: background 0.3s; }
+.nav-left a:hover { background-color: #444; }
+.invest-btn { background-color: #ffcc00; color: #222; font-weight: bold; padding: 8px 12px; border-radius: 5px; text-decoration: none; }
+.invest-btn:hover { background-color: #b8942c; }
+.dropdown { position: relative; }
+.dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: #444; min-width: 160px; flex-direction: column; z-index: 1; border-radius: 4px; }
+.dropdown-content a { color: white; padding: 10px; text-decoration: none; display: block; }
+.dropdown-content a:hover { background-color: #555; }
+.dropdown:hover .dropdown-content { display: flex; }
 
-    .header-logo span {
-      font-size: 36px;
-      font-weight: bold;
-      vertical-align: middle;
-    }
+/* Ticker */
+.ticker-container { background-color: #111; color: white; overflow: hidden; white-space: nowrap; }
+.ticker { display: inline-block; padding-left: 100%; animation: tickerMove 30s linear infinite; }
+.ticker-container:hover .ticker { animation-play-state: paused; }
+.ticker a { color: white; text-decoration: none; margin: 0 30px; transition: background-color 0.3s, color 0.3s; }
+.ticker a:hover { background-color: #333; color: #ffcc00; cursor: pointer; }
+@keyframes tickerMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-    .motto {
-      font-size: 18px;
-      font-style: italic;
-      margin-top: 5px;
-      color: #ccc;
-    }
+/* Company Banner */
+.company-banner {
+  position: relative;
+  height: 70vh;
+  background: url('vestraxlogo.png') center/cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.company-banner::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
 
-    /* Navigation */
-    .header-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #333;
-      padding: 10px 20px;
-      flex-wrap: wrap;
-    }
+.banner-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  white-space: nowrap;
+}
 
-    .nav-left, .nav-right {
-      display: flex;
-      align-items: center;
-    }
+/* Banner Name */
+.banner-name {
+  display: inline-block;
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInLeftName 1s forwards 0.5s;
+  position: relative;
+}
+.banner-name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 3px;
+  width: 0;
+  background: white;
+  animation: underlineName 0.8s forwards 1.5s;
+}
 
-    .nav-left a {
-      color: white;
-      margin-right: 15px;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
+/* Banner Motto */
+.banner-motto {
+  font-size: 1.2em;
+  font-style: italic;
+  margin-top: 15px;
+  color: white; /* updated to white */
+  opacity: 0;
+  animation: fadeInLeftMotto 1s forwards 2s;
+}
 
-    .nav-left a:hover {
-      background-color: #444;
-    }
+@keyframes fadeInLeftName { 0% { transform: translateX(-100%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+@keyframes fadeInLeftMotto { 0% { transform: translateX(-50%); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+@keyframes underlineName { 0% { width: 0; } 100% { width: 100%; } }
 
-    .invest-btn {
-      background-color: #ffcc00;
-      color: #222;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
+/* Hero Section Card */
+.hero {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  opacity: 0;
+  transition: all 1s ease;
+}
+.hero.show { opacity: 1; }
 
-    .invest-btn:hover {
-      background-color: #b8942c;
-    }
+.hero-card {
+  background: #fff; /* matches Delivering & Investments */
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-    .dropdown {
-      position: relative;
-    }
+.hero-card h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #222;
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #444;
-      min-width: 160px;
-      flex-direction: column;
-      z-index: 1;
-      border-radius: 4px;
-    }
+.hero-card p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  color: #555;
+}
 
-    .dropdown-content a {
-      color: white;
-      padding: 10px;
-      text-decoration: none;
-      display: block;
-    }
+.hero-card a {
+  background: #ffcc00;
+  color: #222;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
 
-    .dropdown-content a:hover {
-      background-color: #555;
-    }
+.hero-card a:hover {
+  background: #e6b800;
+}
 
-    .dropdown:hover .dropdown-content {
-      display: flex;
-    }
 
-    /* Ticker */
-    .ticker-container {
-      background-color: #111;
-      color: white;
-      overflow: hidden;
-      white-space: nowrap;
-    }
+/* Delivering for Investors */
+.deliver-investors {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  opacity: 0;
+  transition: all 1s ease;
+}
+.deliver-investors.show { opacity: 1; }
 
-    .ticker {
-      display: inline-block;
-      padding-left: 100%;
-      animation: tickerMove 30s linear infinite;
-    }
+.deliver-card {
+  background: #fff; /* Matches Investments section */
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-    .ticker-container:hover .ticker {
-      animation-play-state: paused;
-    }
+.deliver-card h2 { font-size: 2.2em; margin-bottom: 15px; text-align: center; }
+.deliver-card .subtitle { text-align: center; font-size: 1.3em; margin-bottom: 40px; color: #555; }
+.deliver-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.deliver-text { flex: 1 1 60%; font-size: 1.2em; color: #333; }
+.aum { flex: 1 1 35%; text-align: center; color: black; }
+.aum-number { font-size: 3.5em; font-weight: bold; }
+.aum-label { font-size: 1.3em; margin-top: 5px; }
 
-    .ticker a {
-      color: white;
-      text-decoration: none;
-      margin: 0 30px;
-      transition: background-color 0.3s, color 0.3s;
-    }
 
-    .ticker a:hover {
-      background-color: #333;
-      color: #ffcc00;
-      cursor: pointer;
-    }
+/* Investments Section */
+.invest-latest-container { display: flex; flex-wrap: wrap; max-width: 1200px; margin: 40px auto; gap: 20px; padding: 0 20px; justify-content: center; opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+.invest-latest-container.show { opacity: 1; transform: translateY(0); }
+.rotating-investments { flex: 1 1 100%; background: #fff; border-radius: 8px; overflow: hidden; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; }
+.rotating-investments h2 { margin-bottom: 10px; font-size: 1.5em; }
+.investment-frame { width: 100%; height: 450px; border: none; border-radius: 5px; display: none; cursor:pointer; }
 
-    .ticker-symbol { font-weight: bold; }
-    .ticker-price b { font-weight: bold; }
 
-    @keyframes tickerMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      background: #ddd url('https://via.placeholder.com/1200x400') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    .hero h1 {
-      font-size: 3em;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
-    .hero p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
-    .hero a {
-      background: #ffcc00;
-      color: #222;
-      text-decoration: none;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-    .hero a:hover {
-      background: #e6b800;
-    }
+/* Footer */
+footer { background-color: #222; color: white; text-align: center; padding: 20px; font-size: 14px; margin-top: 40px; }
+footer .footer-links { margin: 10px 0; }
+footer .footer-links a { color: #ffcc00; text-decoration: none; margin: 0 10px; }
+footer .footer-links a:hover { text-decoration: underline; }
+footer .discord-link { display: inline-block; margin-top: 10px; padding: 8px 12px; background-color: #5865F2; color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+footer .discord-link:hover { background-color: #4752C4; }
 
-    /* Investments Container */
-    .invest-latest-container {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 40px auto;
-      gap: 20px;
-      padding: 0 20px;
-      justify-content: center;
-    }
+@media(max-width: 900px){ .invest-latest-container { flex-direction: column; } .investment-frame { height: 400px; } }
 
-    /* Rotating Investments */
-    .rotating-investments {
-      flex: 1 1 100%;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: relative;
-    }
-    .rotating-investments h2 {
-      margin-bottom: 10px;
-      font-size: 1.5em;
-    }
-    .investment-frame {
-      width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 5px;
-      display: none;
-    }
+/* Popup Overlay */
+#popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+#popup-overlay.show { opacity: 1; pointer-events: auto; }
+#popup-box { background: white; padding: 30px; border-radius: 10px; max-width: 400px; text-align: center; box-shadow: 0 0 15px rgba(0,0,0,0.5); transform: scale(0.8); transition: transform 0.3s ease; }
+#popup-overlay.show #popup-box { transform: scale(1); }
+#popup-box button { margin-top: 15px; padding: 10px 20px; cursor: pointer; background: #222; color: white; border: none; border-radius: 5px; font-weight: bold; }
 
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      margin-top: 40px;
-    }
-
-    footer .footer-links {
-      margin: 10px 0;
-    }
-
-    footer .footer-links a {
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    footer .discord-link {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 12px;
-      background-color: #5865F2;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer .discord-link:hover {
-      background-color: #4752C4;
-    }
-
-    @media(max-width: 900px){
-      .invest-latest-container {
-        flex-direction: column;
-      }
-      .investment-frame {
-        height: 400px;
-      }
-    }
-
-    /* Popup Overlay */
-    #popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    #popup-overlay.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    #popup-box {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 400px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      transform: scale(0.8);
-      transition: transform 0.3s ease;
-    }
-
-    #popup-overlay.show #popup-box {
-      transform: scale(1);
-    }
-
-    #popup-box button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      cursor: pointer;
-      background: #222;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-  </style>
+</style>
 </head>
+<body>
 
 <!-- Popup Modal -->
 <div id="popup-overlay" style="display:none;">
   <div id="popup-box">
     <h2>Welcome to Vestrax Financial Holdings!</h2>
-    <p>Explore our investment opportunities and latest news.</p>
+    <p>Explore our investment opportunities.</p>
     <button id="close-popup">Close</button>
   </div>
 </div>
 
-<body>
-
+<!-- Header / Navigation -->
 <header>
   <div class="header-logo">
     <img src="vestraxlogo.png" alt="Vestrax Logo">
-    <a href="index.html" style="color: white; text-decoration: none;">
-      <span>Vestrax Financial Holdings</span>
-    </a>
+    <a href="index.html" style="color: white; text-decoration: none;"><span>Vestrax Financial Holdings</span></a>
   </div>
-  <div class="motto">
-    Empowering Your Financial Future
-  </div>
+  <div class="motto">Empowering Your Financial Future</div>
   <nav class="header-nav">
     <div class="nav-left">
       <a href="about.html">About Us</a>
@@ -361,33 +251,56 @@
       </div>
       <a href="careers.html">Careers</a>
     </div>
-    <div class="nav-right">
-      <a href="invest.html" class="invest-btn">Invest Now</a>
-    </div>
+    <div class="nav-right"><a href="invest.html" class="invest-btn">Invest Now</a></div>
   </nav>
 </header>
 
-<!-- Stock Ticker -->
-<div class="ticker-container">
-  <div class="ticker" id="ticker-container">
-    Loading ticker...
-  </div>
-</div>
+<!-- Ticker -->
+<div class="ticker-container"><div class="ticker" id="ticker-container">Loading ticker...</div></div>
 
-<!-- Hero Section -->
-<section class="hero">
-  <h1>Vestrax Announces Earnings Date</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ligula nec nulla efficitur consequat.</p>
-  <a href="#">Read More</a>
+<!-- Company Banner -->
+<section class="company-banner">
+  <div class="banner-overlay" id="banner-content">
+    <span class="banner-name">Vestrax Financial Holdings</span>
+    <div class="banner-motto">Empowering Your Financial Future</div>
+  </div>
 </section>
 
-<!-- Investments Section Only -->
-<div class="invest-latest-container">
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-card">
+    <h1>Vestrax Announces Earnings Date</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ligula nec nulla efficitur consequat.</p>
+    <a href="#">Read More</a>
+  </div>
+</section>
+
+
+<!-- Delivering for Investors Section -->
+<section class="deliver-investors" id="deliver">
+  <div class="deliver-card">
+    <h2>Delivering for Investors</h2>
+    <p class="subtitle">Providing transparency, growth, and strong financial management.</p>
+    <div class="deliver-container">
+      <div class="deliver-text">
+        <p>We provide our investors with comprehensive financial services, hedge fund management, and exclusive access to growth-oriented investment opportunities.</p>
+      </div>
+      <div class="aum">
+        <div class="aum-number">$1.2B</div>
+        <div class="aum-label">Assets under Management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Investments Section -->
+<div class="invest-latest-container" id="investments">
   <div class="rotating-investments">
     <h2>Investments</h2>
-    <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1242268346&amp;format=interactive"></iframe>
-    <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=287222736&amp;format=interactive"></iframe>
-    <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1512453944&amp;format=interactive"></iframe>
+    <iframe class="investment-frame" onclick="window.location='hedgefund.html'" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1242268346&format=interactive"></iframe>
+    <iframe class="investment-frame" onclick="window.location='vfha.html'" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=287222736&format=interactive"></iframe>
+    <iframe class="investment-frame" onclick="window.location='vfhb.html'" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1512453944&format=interactive"></iframe>
   </div>
 </div>
 
@@ -395,8 +308,8 @@
 <footer>
   <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
   <div class="footer-links">
-    <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
-    <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
+    <a href="#">Terms of Service</a> |
+    <a href="#">Company Bylaws</a> |
     <a href="about.html">Our Staff</a> |
     <a href="careers.html">Join Our Team</a>
   </div>
@@ -404,61 +317,54 @@
 </footer>
 
 <script>
-  // Dropdown hover functionality
-  document.querySelectorAll('.dropdown').forEach(dropdown => {
-    dropdown.addEventListener('mouseenter', () => {
-      dropdown.querySelector('.dropdown-content').style.display = 'flex';
-    });
-    dropdown.addEventListener('mouseleave', () => {
-      dropdown.querySelector('.dropdown-content').style.display = 'none';
-    });
-  });
+// Dropdown hover
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+  dropdown.addEventListener('mouseenter', () => dropdown.querySelector('.dropdown-content').style.display = 'flex');
+  dropdown.addEventListener('mouseleave', () => dropdown.querySelector('.dropdown-content').style.display = 'none');
+});
 
-  // Rotating investments carousel
-  const frames = document.querySelectorAll('.investment-frame');
-  let current = 0;
-  function showNextFrame() {
-    frames.forEach((f, i) => f.style.display = i === current ? 'block' : 'none');
-    current = (current + 1) % frames.length;
+// Rotating investments carousel
+const frames = document.querySelectorAll('.investment-frame');
+let current = 0;
+function showNextFrame() { frames.forEach((f,i)=>f.style.display=i===current?'block':'none'); current=(current+1)%frames.length; }
+showNextFrame();
+setInterval(showNextFrame,5000);
+
+// Popup overlay
+document.addEventListener('DOMContentLoaded', function() {
+  if (!sessionStorage.getItem('popupShown')) {
+    setTimeout(() => {
+      const overlay = document.getElementById('popup-overlay');
+      overlay.style.display = 'flex';
+      requestAnimationFrame(() => overlay.classList.add('show'));
+      document.getElementById('close-popup').addEventListener('click', function() {
+        overlay.classList.remove('show');
+        setTimeout(()=>overlay.style.display='none',300);
+        sessionStorage.setItem('popupShown','true');
+      });
+    }, 2500);
   }
-  showNextFrame();
-  setInterval(showNextFrame, 5000); // rotates every 5 seconds
+});
 
-  // Popup overlay
-  document.addEventListener('DOMContentLoaded', function() {
-    if (!sessionStorage.getItem('popupShown')) {
-      setTimeout(() => {
-        const overlay = document.getElementById('popup-overlay');
-        overlay.style.display = 'flex';
-        requestAnimationFrame(() => overlay.classList.add('show'));
-
-        document.getElementById('close-popup').addEventListener('click', function() {
-          overlay.classList.remove('show');
-          setTimeout(() => overlay.style.display = 'none', 300);
-          sessionStorage.setItem('popupShown', 'true');
-        });
-      }, 2500);
+// Scroll-triggered fade for sections
+const sections = document.querySelectorAll('section, .hero, .invest-latest-container');
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + window.innerHeight * 0.6;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    if(scrollY > sectionTop && scrollY < sectionTop + sectionHeight) {
+      section.classList.add('show');
+      sections.forEach(s => { if(s!==section) s.classList.remove('show'); });
     }
   });
+});
 
-  // Ticker fetch
-  fetch('ticker.html')
-    .then(response => {
-      if (!response.ok) throw new Error('Ticker file not found');
-      return response.text();
-    })
-    .then(data => {
-      const tickerDiv = document.getElementById('ticker-container');
-      if (!data.includes('class="ticker"')) {
-        tickerDiv.innerHTML = `<div class="ticker">${data}</div>`;
-      } else {
-        tickerDiv.innerHTML = data;
-      }
-    })
-    .catch(error => {
-      console.error('Error loading ticker:', error);
-      document.getElementById('ticker-container').textContent = 'Ticker unavailable';
-    });
+// Ticker fetch
+fetch('ticker.html')
+  .then(response=>{ if(!response.ok) throw new Error('Ticker file not found'); return response.text(); })
+  .then(data=>{ const tickerDiv=document.getElementById('ticker-container'); if(!data.includes('class="ticker"')) tickerDiv.innerHTML=`<div class="ticker">${data}</div>`; else tickerDiv.innerHTML=data; })
+  .catch(error=>{ console.error('Error loading ticker:', error); document.getElementById('ticker-container').textContent='Ticker unavailable'; });
 </script>
 
 </body>
