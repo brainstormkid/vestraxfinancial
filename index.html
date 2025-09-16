@@ -76,7 +76,7 @@
     }
 
     .invest-btn {
-      background-color: #ffcc00; /* darker gold */
+      background-color: #ffcc00;
       color: #222;
       font-weight: bold;
       padding: 8px 12px;
@@ -168,7 +168,7 @@
     }
     .hero h1 {
       font-size: 3em;
-      margin-top: 20px; /* moved lower */
+      margin-top: 20px;
       margin-bottom: 10px;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
@@ -189,7 +189,7 @@
       background: #e6b800;
     }
 
-    /* Investments & Latest News Container */
+    /* Investments Container */
     .invest-latest-container {
       display: flex;
       flex-wrap: wrap;
@@ -197,11 +197,12 @@
       margin: 40px auto;
       gap: 20px;
       padding: 0 20px;
+      justify-content: center;
     }
 
-    /* Rotating Investments (Google Sheet Carousel) */
+    /* Rotating Investments */
     .rotating-investments {
-      flex: 1 1 600px;
+      flex: 1 1 100%;
       background: #fff;
       border-radius: 8px;
       overflow: hidden;
@@ -215,109 +216,10 @@
     }
     .investment-frame {
       width: 100%;
-      height: 434px;
+      height: 450px;
       border: none;
       border-radius: 5px;
       display: none;
-    }
-
-    /* Latest News Section */
-    .latest-news {
-      flex: 1 1 400px;
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; /* evenly spaced */
-      height: 100%;
-    }
-
-    .latest-news h2 {
-      margin-bottom: 10px;
-    }
-
-    .latest-news ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    .latest-news li {
-      margin-bottom: 10px;
-    }
-
-    .latest-news a {
-      text-decoration: none;
-      color: #003366;
-      font-weight: bold;
-    }
-
-    .latest-news a:hover {
-      text-decoration: underline;
-    }
-
-    .news-date {
-      font-size: 0.85em;
-      color: #888;
-      margin-top: 2px;
-    }
-
-    /* News Stories Section */
-    .news-stories {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .news-card {
-      display: flex;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .news-card:hover {
-      transform: translateY(-5px);
-    }
-    .news-card img {
-      width: 671px;
-      height: 361px;
-      object-fit: cover;
-    }
-    .news-content {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .news-content h3 {
-      font-size: 1.5em;
-      margin-bottom: 5px;
-    }
-    .news-content .news-meta {
-      font-size: 0.85em;
-      color: #888;
-      margin-bottom: 10px;
-    }
-    .news-content p {
-      font-size: 0.9em;
-      color: #555;
-      margin-bottom: 10px;
-    }
-    .news-content a {
-      text-decoration: none;
-      color: #003366;
-      font-weight: bold;
     }
 
     /* Footer */
@@ -360,78 +262,64 @@
     }
 
     @media(max-width: 900px){
-      .invest-latest-container, .news-card {
+      .invest-latest-container {
         flex-direction: column;
       }
-      .news-card img {
-        width: 100%;
-        height: auto;
+      .investment-frame {
+        height: 400px;
       }
     }
-	/* Popup Overlay */
-  #popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-  }
 
-  /* Popup Overlay */
-  #popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
+    /* Popup Overlay */
+    #popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
 
-  #popup-overlay.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
+    #popup-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-  /* Popup Box */
-  #popup-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    transform: scale(0.8);
-    transition: transform 0.3s ease;
-  }
+    #popup-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
 
-  #popup-overlay.show #popup-box {
-    transform: scale(1);
-  }
+    #popup-overlay.show #popup-box {
+      transform: scale(1);
+    }
 
-  #popup-box button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: #222;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-  }
+    #popup-box button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      cursor: pointer;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
   </style>
 </head>
+
 <!-- Popup Modal -->
 <div id="popup-overlay" style="display:none;">
   <div id="popup-box">
@@ -440,27 +328,6 @@
     <button id="close-popup">Close</button>
   </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Show popup if not shown this session
-  if (!sessionStorage.getItem('popupShown')) {
-    setTimeout(() => {
-      const overlay = document.getElementById('popup-overlay');
-      overlay.style.display = 'flex';
-      requestAnimationFrame(() => overlay.classList.add('show'));
-
-      document.getElementById('close-popup').addEventListener('click', function() {
-        overlay.classList.remove('show'); // fade out
-        setTimeout(() => overlay.style.display = 'none', 300); // hide after fade
-        sessionStorage.setItem('popupShown', 'true'); // mark as shown
-      });
-    }, 2500); // 2.5 second delay
-  }
-});
-</script>
-
-
 
 <body>
 
@@ -492,7 +359,6 @@ document.addEventListener('DOMContentLoaded', function() {
           <a href="media-relations.html">Media Relations</a>
         </div>
       </div>
-      <a href="news.html">News</a>
       <a href="careers.html">Careers</a>
     </div>
     <div class="nav-right">
@@ -515,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <a href="#">Read More</a>
 </section>
 
-<!-- Investments & Latest News Section -->
+<!-- Investments Section Only -->
 <div class="invest-latest-container">
   <div class="rotating-investments">
     <h2>Investments</h2>
@@ -523,75 +389,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=287222736&amp;format=interactive"></iframe>
     <iframe class="investment-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQuOGRhZ3123-zuj7x5yDAygyf0jjwNbcHukgKiDEx-5LMKrgh_8cnqs7zpiuMqpESE6t_4UyGWvlDG/pubchart?oid=1512453944&amp;format=interactive"></iframe>
   </div>
-  <div class="latest-news">
-    <h2>Latest Market News</h2>
-    <ul>
-      <li>
-        <a href="#">Narcot Inc. Pharmaceuticals Initial Public Offering</a>
-        <div class="news-date">Sep 1, 2025</div>
-      </li>
-      <li>
-        <a href="#">HiveCorp Issues Additional Bonds</a>
-        <div class="news-date">Sep 1, 2025</div>
-      </li>
-      <li>
-        <a href="#">Former Maestro CEO Dumps Shares</a>
-        <div class="news-date">Aug 31, 2025</div>
-      </li>
-	  <li>
-        <a href="#">Headline 4 - Sed do eiusmod tempor</a>
-        <div class="news-date">Aug 30, 2025</div>
-      </li>
-	  <li>
-        <a href="#">Headline 5 - Sed do eiusmod tempor</a>
-        <div class="news-date">Aug 30, 2025</div>
-      </li>
-	  <li>
-        <a href="#">Headline 6 - Sed do eiusmod tempor</a>
-        <div class="news-date">Aug 30, 2025</div>
-      </li>
-	  <li>
-        <a href="#">Headline 7 - Sed do eiusmod tempor</a>
-        <div class="news-date">Aug 30, 2025</div>
-      </li>
-	  <li>
-        <a href="#">Headline 8 - Sed do eiusmod tempor</a>
-        <div class="news-date">Aug 30, 2025</div>
-      </li>
-    </ul>
-  </div>
 </div>
-
-<!-- News Stories Section -->
-<section class="news-stories">
-  <div class="news-card">
-    <img src="images/Narcot Logo.png" alt="News Image">
-    <div class="news-content">
-      <h3>Narcot Inc. Pharmaceuticals Initial Public Offering</h3>
-      <div class="news-meta">Editor: brainstormkid, Sep 1, 2025</div>
-      <p>Placeholder</p>
-      <a href="articles/narcot-pharmaceuticals-initial-public-offering.html">Read More</a>
-    </div>
-  </div>
-  <div class="news-card">
-    <img src="images/HiveCorp Logo.png" alt="News Image">
-    <div class="news-content">
-      <h3>HiveCorp Issues Additional Bonds</h3>
-      <div class="news-meta">Editor: brainstormkid, Sep 1, 2025</div>
-      <p>Placeholder</p>
-      <a href="articles/hivecorp-issues-additional-bonds.html">Read More</a>
-    </div>
-  </div>
-  <div class="news-card">
-    <img src="images/Maestro Logo.png" alt="News Image">
-    <div class="news-content">
-      <h3>Former Maestro CEO Dumps Shares</h3>
-      <div class="news-meta">Editor: brainstormkid, Aug 31, 2025</div>
-      <p>Yesterday, recently ousted CEO of Maestro Inc. and CEO of NIX Enterprise, Infonix announced his intention to sell nearly 14,000 shares of Maestro stock.</p>
-      <a href="articles/former-maestro-ceo-dumps-shares.html">Read More</a>
-    </div>
-  </div>
-</section>
 
 <!-- Footer -->
 <footer>
@@ -625,19 +423,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   showNextFrame();
   setInterval(showNextFrame, 5000); // rotates every 5 seconds
-</script>
 
-<script>
+  // Popup overlay
+  document.addEventListener('DOMContentLoaded', function() {
+    if (!sessionStorage.getItem('popupShown')) {
+      setTimeout(() => {
+        const overlay = document.getElementById('popup-overlay');
+        overlay.style.display = 'flex';
+        requestAnimationFrame(() => overlay.classList.add('show'));
+
+        document.getElementById('close-popup').addEventListener('click', function() {
+          overlay.classList.remove('show');
+          setTimeout(() => overlay.style.display = 'none', 300);
+          sessionStorage.setItem('popupShown', 'true');
+        });
+      }, 2500);
+    }
+  });
+
+  // Ticker fetch
   fetch('ticker.html')
     .then(response => {
       if (!response.ok) throw new Error('Ticker file not found');
       return response.text();
     })
     .then(data => {
-      // Make sure ticker div exists
       const tickerDiv = document.getElementById('ticker-container');
-
-      // Wrap content in a .ticker div if not already wrapped
       if (!data.includes('class="ticker"')) {
         tickerDiv.innerHTML = `<div class="ticker">${data}</div>`;
       } else {
