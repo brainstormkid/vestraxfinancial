@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vestrax Financial Holdings | Home</title>
-<link rel="icon" href="vestraxlogo.png" type="image/png">
+<link rel="icon" href="/vestraxfinancial/vestraxlogo.png" type="image/png">
 
 <!-- Open Graph / Discord Embed -->
 <meta property="og:site_name" content="Vestrax Financial Holdings | Empowering Your Financial Future">
@@ -411,32 +411,37 @@ footer .discord-link:hover { background-color: #4752C4; }
 
 <!-- Header / Navigation -->
 <header>
-  <div class="header-logo">
-    <img src="vestraxlogo.png" alt="Vestrax Logo">
-    <a href="index.html" style="color: white; text-decoration: none;"><span>Vestrax Financial Holdings</span></a>
-  </div>
-  <div class="motto">Empowering Your Financial Future</div>
+  <a href="/" style="text-decoration: none; color: inherit;">
+    <div class="header-logo">
+      <img src="/vestraxfinancial/vestraxlogo.png" alt="Vestrax Logo">
+      <span>Vestrax Financial Holdings</span>
+    </div>
+    <div class="motto">Empowering Your Financial Future</div>
+  </a>
+
   <nav class="header-nav">
     <div class="nav-left">
       <a href="/vestraxfinancial/about/">About Us</a>
       <div class="dropdown">
         <a href="#">Investments ▼</a>
         <div class="dropdown-content">
-          <a href="hedgefund.html">Hedge Fund</a>
-          <a href="vfha.html">Vestrax Class A Shares</a>
-          <a href="vfhb.html">Vestrax Class B Shares</a>
+          <a href="/vestraxfinancial/hedgefund/">Hedge Fund</a>
+          <a href="/vestraxfinancial/vfha/">Vestrax Class A Shares</a>
+          <a href="/vestraxfinancial/vfhb/">Vestrax Class B Shares</a>
         </div>
       </div>
       <div class="dropdown">
         <a href="#">Public Relations ▼</a>
         <div class="dropdown-content">
-          <a href="investor-relations.html">Investor Relations</a>
-          <a href="media-relations.html">Media Relations</a>
+          <a href="/vestraxfinancial/investor-relations/">Investor Relations</a>
+          <a href="/vestraxfinancial/media-relations/">Media Relations</a>
         </div>
       </div>
-      <a href="careers.html">Careers</a>
+      <a href="/vestraxfinancial/careers/">Careers</a>
     </div>
-    <div class="nav-right"><a href="invest.html" class="invest-btn">Invest Now</a></div>
+    <div class="nav-right">
+      <a href="/vestraxfinancial/invest/" class="invest-btn">Invest Now</a>
+    </div>
   </nav>
 </header>
 
@@ -539,10 +544,10 @@ footer .discord-link:hover { background-color: #4752C4; }
 <footer>
   <p>© 2025 Vestrax Financial Holdings. This is a fictional website created for roleplay purposes. All content is fictional.</p>
   <div class="footer-links">
-    <a href="#">Terms of Service</a> |
-    <a href="#">Company Bylaws</a> |
-    <a href="about.html">Our Staff</a> |
-    <a href="careers.html">Join Our Team</a>
+    <a href="https://docs.google.com/document/d/1soO1x7ESWzFKan9_UUxs-zT7-H8AnfQWvnKR-b7YFxs/edit?usp=sharing">Terms of Service</a> |
+    <a href="https://docs.google.com/document/d/1-DxX94P8OddUaweRKklN0UMtrupC3rGpIB9oekDuG_I/edit?tab=t.0">Company Bylaws</a> |
+    <a href="/vestraxfinancial/about/">Our Staff</a> |
+    <a href="/vestraxfinancial/careers/">Join Our Team</a>
   </div>
   <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
 </footer>
@@ -592,7 +597,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Ticker fetch
-fetch('ticker.html')
+fetch('/vestraxfinancial/ticker/')
   .then(response=>{ if(!response.ok) throw new Error('Ticker file not found'); return response.text(); })
   .then(data=>{ const tickerDiv=document.getElementById('ticker-container'); if(!data.includes('class="ticker"')) tickerDiv.innerHTML=`<div class="ticker">${data}</div>`; else tickerDiv.innerHTML=data; })
   .catch(error=>{ console.error('Error loading ticker:', error); document.getElementById('ticker-container').textContent='Ticker unavailable'; });
