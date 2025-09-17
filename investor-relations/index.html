@@ -294,7 +294,7 @@
 <script>
 async function loadStockData() {
     try {
-        const response = await fetch('ticker.html?v=' + Date.now()); // prevent caching
+        const response = await fetch('/vestraxfinancial/ticker/?v=' + Date.now()); // prevent caching
         const text = await response.text();
 
         // Parse as DOM
@@ -353,11 +353,11 @@ loadStockData();
         </thead>
         <tbody>
           <!-- <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>August</td><td><a href="reports/jan-2025.pdf" target="_blank">Download Excel</a></td></tr> -->
-		  <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>August</td><td><a href="August 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
-		  <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>July</td><td><a href="July 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
-		  <tr class="quarterly"><td>Quarterly</td><td>Q2 2025</td><td>Q2</td><td><a href="Q225 Report - Vestrax Financial Holdings.pdf" target="_blank">Download PDF</a></td></tr>
-          <tr class="monthly"><td>Monthly</td><td>Q2 2025</td><td>June</td><td><a href="June 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
-		  <tr class="monthly"><td>Monthly</td><td>Q2 2025</td><td>May</td><td><a href="reports/May 2025 - Vestrax Financial Statements [RESTATED].xlsx" target="_blank">Download Excel</a></td></tr>
+		  <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>August</td><td><a href="/reports/August 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
+		  <tr class="monthly"><td>Monthly</td><td>Q3 2025</td><td>July</td><td><a href="/reports/July 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
+		  <tr class="quarterly"><td>Quarterly</td><td>Q2 2025</td><td>Q2</td><td><a href="/reports/Q225 Report - Vestrax Financial Holdings.pdf" target="_blank">Download PDF</a></td></tr>
+          <tr class="monthly"><td>Monthly</td><td>Q2 2025</td><td>June</td><td><a href="/reports/June 2025 - Vestrax Financial Statements.xlsx" target="_blank">Download Excel</a></td></tr>
+		  <tr class="monthly"><td>Monthly</td><td>Q2 2025</td><td>May</td><td><a href="/reports/May 2025 - Vestrax Financial Statements [RESTATED].xlsx" target="_blank">Download Excel</a></td></tr>
           <!-- <tr class="annual"><td>Annual</td><td>FY 2025</td><td>2025</td><td><a href="pdfs/annual-2025.pdf" target="_blank">Download PDF</a></td></tr> -->
         </tbody>
       </table>
