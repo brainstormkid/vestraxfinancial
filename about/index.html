@@ -188,6 +188,114 @@
       padding-bottom: 5px;
       margin-top: 30px;
     }
+	
+	<style>
+  .board {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .board-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .member-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth animation */
+}
+
+.member-card:hover {
+  transform: translateY(-10px); /* moves the box upward */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* stronger shadow when hovering */
+}
+
+
+  .member-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  .member-card h3 {
+    margin: 0.5rem 0;
+  }
+
+   /* Badge Roles */
+  .roles {
+    margin: 0.5rem 0;
+  }
+
+  .role {
+    display: inline-block;
+    background: #eaeaea;
+    color: #333;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    margin: 0.2rem;
+  }
+
+.bio {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;  /* subtle divider between roles and description */
+}
+
+/* Alternating backgrounds */
+.section-alt {
+  background: #f0f0f0;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 20px;
+}
+.service {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Fade-in / Fade-out base */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
     /* Footer */
     footer {
@@ -276,44 +384,135 @@
 
   <!-- Main Content -->
   <main>
-    <h1>About Us</h1>
+  <h1 class="page-title">About Us</h1>
 
-    <section>
-      <h2>What is Vestrax?</h2>
-      <p>We are the oldest surviving investment firm in Stoneworks since 2023. We offer financial investments services to investors who want to grow their savings compared to a traditional bank. We have experience in the financial space and have ran and still run the largest investment funds in Stoneworks.</p>
-    </section>
-	
-    <!-- New Vestrax Info Section -->
-    <section>
-      <hr>
+  <!-- Section 1 -->
+  <section class="fade-section section-alt">
+    <h2>What is Vestrax?</h2>
+    <p>We are the oldest surviving investment firm in Stoneworks since 2023. We offer financial investments services to investors who want to grow their savings compared to a traditional bank. We have experience in the financial space and have ran and still run the largest investment funds in Stoneworks.</p>
+  </section>
+  
+  <!-- Section 2 -->
+  <section class="fade-section section-alt">
+    <h2>Vestrax Services</h2>
+    <p><em>This is a current list of all current services offered by Vestrax:</em></p>
 
-      <h2>Vestrax Services</h2>
-      <p><em>This is a current list of all current services offered by Vestrax:</em></p>
+    <div class="services-grid">
+      <div class="service">
+        <h3>Asset-Backed Security Bonds (ABS)</h3>
+        <p><em>Vestrax issues its own bonds to investors which earn interest.</em><br>
+        More info can be found in <a href="/vestraxfinancial/vfhabs/">Vestrax Corporate Bonds</a></p>
+      </div>
 
-      <h3>Asset-Backed Security Bonds (ABS)</h3>
-      <p><em>Vestrax issues its own bonds to investors which earn interest.</em><br>
-      More info can be found in <a href="/vestraxfinancial/vfhabs/">Vestrax Corporate Bonds</a></p>
+      <div class="service">
+        <h3>Loaning Service</h3>
+        <p><em>Vestrax can help service your financial needs to help with a personal project, your nation, etc. Loan terms vary on a case-by-case basis.</em><br>
+        <em>If interested, please make a loan ticket on our Discord</em></p>
+      </div>
 
-      <h3>Loaning Service</h3>
-      <p><em>Vestrax can help service your financial needs to help with a personal project, your nation, etc. Loan terms vary on a case-by-case basis.</em><br>
-      <em>If interested, please make a loan ticket on our Discord</em></p>
+      <div class="service">
+        <h3>Hedge Fund</h3>
+        <p><em>Investors can deposit money into the fund which earn returns.</em><br>
+        Related info can be found in <a href="/vestraxfinancial/hedgefund/">Hedge Fund</a></p>
+      </div>
 
-      <h3>Hedge Fund</h3>
-      <p><em>Investors can deposit money into the fund which earn returns.</em><br>
-      Related info can be found in <a href="/vestraxfinancial/hedgefund/">Hedge Fund</a></p>
+      <div class="service">
+        <h3>Vestrax Stock</h3>
+        <p><em>Investors can purchase and sell Vestrax stocks in which they can have a direct stake within the company's operations and management.</em><br>
+        <em>Can be purchased via a ticket in Vestrax Discord or on Crimson Banking</em></p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 3 -->
+  <section class="fade-section section-alt">
+    <h2>Board of Directors</h2>
+    <p>Our team consists of experienced investment managers, analysts, and financial experts committed to delivering value to our stakeholders.</p>
+    <div class="board-members">
+      <!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-brainstormkid.jpg" alt="Portrait of Brainstormkid">
+      <h3>Brainstormkid</h3>
+      <p class="role">Chief Executive Officer</p>
+      <p class="role">Founder</p>
+	  <p class="role">Chief Financial Officer</p>
+	  <p class="role">Chief Investment Officer</p>
+      <p class="bio">TBA</p>
+    </div>
 
-      <h3>Vestrax Stock</h3>
-      <p><em>Investors can purchase and sell Vestrax stocks in which they can have a direct stake within the company's operations and management.</em><br>
-      <em>Can be purchased via a ticket in Vestrax Discord or on Crimson Banking</em></p>
-    </section>
-	
-    <section>
-      <h2>Our Team</h2>
-      <p>Our team consists of experienced investment managers, analysts, and financial experts committed to delivering value to our stakeholders.</p>
-      <h3>CEO | Brainstormkid</h3>
-      <h3>CEO | Molotov</h3>
-    </section>
-  </main>
+    <!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of Molotov">
+      <h3>Molotov</h3>
+      <p class="role">Chief Executive Officer</p>
+      <p class="role">Chief Investment Officer</p>
+      <p class="bio">TBA</p>
+    </div>
+	<!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of Zarthramid">
+      <h3>Zarthramid</h3>
+      <p class="role">Vice President</p>
+      <p class="bio">TBA</p>
+    </div>
+	<!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of Gabriel">
+      <h3>Gabriel</h3>
+      <p class="role">Chief Legal Officer</p>
+      <p class="bio">TBA</p>
+    </div>
+	<!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of Caro">
+      <h3>Caro</h3>
+      <p class="role">Chief Design Officer</p>
+      <p class="bio">TBA</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Section 4 -->
+  <section class="fade-section section-alt">
+    <h2>Advisory Board</h2>
+    <p>Our team consists of experienced investment managers, analysts, and financial experts committed to delivering value to our stakeholders.</p>
+    <div class="board-members">
+      <!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-brainstormkid.jpg" alt="Portrait of Crezyman">
+      <h3>Crezyman</h3>
+      <p class="role">Autarch of Eirwynor</p>
+	  <p class="role">Chief Diversity Officer</p>
+	  <p class="role">Foreign Advisor</p>
+      <p class="bio">TBA</p>
+    </div>
+
+    <!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of Lukey">
+      <h3>Lukey</h3>
+      <p class="role">Chief Human Resources Officer</p>
+      <p class="bio">TBA</p>
+    </div>
+	<!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of Bomby">
+      <h3>Bomby</h3>
+      <p class="role">Chief Security Officer</p>
+      <p class="bio">TBA</p>
+    </div>
+	<!-- Example Member -->
+    <div class="member-card">
+      <img src="ceo-molotov.jpg" alt="Portrait of plottingyourdownfall">
+      <h3>plottingyourdownfall</h3>
+      <p class="role">General Secretary of Akito</p>
+	  <p class="role">Foreign Advisor</p>
+      <p class="bio">TBA</p>
+    </div>
+    </div>
+  </section>
+</main>
+
 
 
   <!-- Footer -->
@@ -328,6 +527,23 @@
     <a href="https://discord.gg/cMWHx64DkN" class="discord-link" target="_blank">Join Us on Discord</a>
   </footer>
   
+  <script>
+  const fadeSections = document.querySelectorAll('.fade-section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible'); // fade OUT when leaving
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeSections.forEach(el => observer.observe(el));
+</script>
+
+
   <script>
   fetch('/vestraxfinancial/ticker/')
     .then(response => {
