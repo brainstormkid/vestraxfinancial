@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestrax Financial Terminal</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0c0c0e;
+      color: #f0f0f0;
+    }
+
+    /* Header */
+    header {
+      background: #111;
+      color: #ffcc00;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 2px solid #222;
+    }
+
+    /* Nav */
+    nav {
+      background: #1a1a1d;
+      padding: 10px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: bold;
+    }
+    nav a:hover, nav .active {
+      color: #ffcc00;
+    }
+
+    /* Ticker */
+    .ticker-container {
+      background: #000;
+      color: #0f0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: tickerMove 30s linear infinite;
+    }
+    .ticker span {
+      margin: 0 40px;
+    }
+    @keyframes tickerMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Market Overview */
+    .market-overview {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 20px;
+      background: #141414;
+      border-bottom: 2px solid #222;
+    }
+    .market-card {
+      background: #1e1e22;
+      padding: 15px 20px;
+      border-radius: 8px;
+      min-width: 150px;
+      text-align: center;
+      margin: 10px;
+    }
+    .market-card h3 {
+      margin: 0;
+      color: #ffcc00;
+    }
+    .market-card .value {
+      font-size: 20px;
+      margin: 8px 0;
+    }
+    .market-card .change.up {
+      color: #0f0;
+    }
+    .market-card .change.down {
+      color: #f00;
+    }
+
+    /* Investment Grid */
+    .investment-list {
+      padding: 30px;
+    }
+    .investment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .investment-card {
+      background: #1e1e22;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .investment-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .investment-card h3 {
+      margin-bottom: 5px;
+      color: #ffcc00;
+    }
+    .investment-card .ticker {
+      color: #0f0;
+      font-weight: bold;
+    }
+
+    /* News Section */
+    .news-section {
+      background: #141414;
+      padding: 30px;
+    }
+    .news-section h2 {
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+    .news-feed {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .news-feed li {
+      margin: 10px 0;
+      padding: 10px;
+      border-bottom: 1px solid #333;
+    }
+    .news-feed li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    .news-feed li a:hover {
+      color: #ffcc00;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      border-top: 2px solid #222;
+    }
+    .footer-links {
+      margin: 10px 0 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    Vestrax Financial Terminal
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <ul>
+      <li><a href="/vestraxfinancial/">Home</a></li>
+      <li><a href="/vestraxfinancial/about/">About</a></li>
+      <li><a href="/vestraxfinancial/terminal/" class="active">Terminal</a></li>
+      <li><a href="/vestraxfinancial/investments/">Investments</a></li>
+      <li><a href="/vestraxfinancial/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker-container">
+    <div class="ticker">
+      <span>AAPL 185.12 ▲ +1.5%</span>
+      <span>TSLA 246.89 ▼ -0.8%</span>
+      <span>AMZN 131.54 ▲ +0.3%</span>
+      <span>BTC 62,300 ▲ +2.1%</span>
+      <span>ETH 3,250 ▼ -1.2%</span>
+    </div>
+  </div>
+
+  <!-- MARKET OVERVIEW -->
+  <section class="market-overview">
+    <div class="market-card">
+      <h3>Dow Jones</h3>
+      <div class="value">35,600</div>
+      <div class="change up">+0.8%</div>
+    </div>
+    <div class="market-card">
+      <h3>S&P 500</h3>
+      <div class="value">4,500</div>
+      <div class="change up">+1.2%</div>
+    </div>
+    <div class="market-card">
+      <h3>NASDAQ</h3>
+      <div class="value">15,300</div>
+      <div class="change down">-0.5%</div>
+    </div>
+    <div class="market-card">
+      <h3>Crypto Index</h3>
+      <div class="value">7,850</div>
+      <div class="change up">+1.9%</div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT GRID -->
+  <main class="investment-list">
+    <h2>Investments Directory</h2>
+    <p>Select an investment to view detailed information.</p>
+
+    <div class="investment-grid">
+      <a href="/vestraxfinancial/investments/apple.html" class="investment-card">
+        <h3>Apple Inc.</h3>
+        <span class="ticker">AAPL</span>
+      </a>
+      <a href="/vestraxfinancial/investments/microsoft.html" class="investment-card">
+        <h3>Microsoft Corp.</h3>
+        <span class="ticker">MSFT</span>
+      </a>
+      <a href="/vestraxfinancial/investments/tesla.html" class="investment-card">
+        <h3>Tesla, Inc.</h3>
+        <span class="ticker">TSLA</span>
+      </a>
+      <a href="/vestraxfinancial/investments/amazon.html" class="investment-card">
+        <h3>Amazon.com, Inc.</h3>
+        <span class="ticker">AMZN</span>
+      </a>
+      <a href="/vestraxfinancial/investments/google.html" class="investment-card">
+        <h3>Alphabet Inc.</h3>
+        <span class="ticker">GOOGL</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- NEWS SECTION -->
+  <section class="news-section">
+    <h2>Latest Market News</h2>
+    <ul class="news-feed">
+      <li><a href="#">Federal Reserve hints at potential rate cuts in Q3</a></li>
+      <li><a href="#">Apple announces new AI-powered MacBooks</a></li>
+      <li><a href="#">Tesla stock dips after quarterly delivery miss</a></li>
+      <li><a href="#">Amazon expands logistics network in Europe</a></li>
+      <li><a href="#">Bitcoin breaks past $62,000 amid ETF inflows</a></li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Vestrax Financial Holdings. This is a fictional terminal for roleplay purposes.</p>
+    <ul class="footer-links">
+      <li><a href="/vestraxfinancial/privacy/">Privacy Policy</a></li>
+      <li><a href="/vestraxfinancial/terms/">Terms of Service</a></li>
+      <li><a href="/vestraxfinancial/contact/">Contact Us</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
